@@ -1,14 +1,6 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.mapping.*;
+
+import java.util.*;
 
 @ObfuscatedName("no")
 @Implements("WorldMap")
@@ -467,9 +459,9 @@ public class WorldMap {
 					var10 = this.mouseCoord.plane;
 					PacketBufferNode var11 = FriendSystem.getPacketBufferNode(ClientPacket.field2707, Client.packetWriter.isaacCipher);
 					var11.packetBuffer.writeShort(var9);
-					var11.packetBuffer.method6861(0);
-					var11.packetBuffer.method6841(var10);
-					var11.packetBuffer.method6851(var13);
+					var11.packetBuffer.writeInt1(0);
+					var11.packetBuffer.writeByteA(var10);
+					var11.packetBuffer.writeShortA(var13);
 					Client.packetWriter.addNode(var11);
 				} else {
 					boolean var8 = true;

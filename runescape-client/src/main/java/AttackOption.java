@@ -1,8 +1,4 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.mapping.*;
 
 @ObfuscatedName("cm")
 @Implements("AttackOption")
@@ -192,7 +188,7 @@ public enum AttackOption implements MouseWheel {
 			NPC var3 = Client.npcs[var2];
 			int var4 = var0.readUnsignedByte();
 			if ((var4 & 64) != 0) {
-				var3.definition = ScriptEvent.getNpcDefinition(var0.method6853());
+				var3.definition = ScriptEvent.getNpcDefinition(var0.readLEShort());
 				var3.field1137 = var3.definition.size;
 				var3.field1146 = var3.definition.rotation;
 				var3.walkSequence = var3.definition.walkSequence;
@@ -208,7 +204,7 @@ public enum AttackOption implements MouseWheel {
 			int var6;
 			int var7;
 			if ((var4 & 128) != 0) {
-				var5 = var0.method6853();
+				var5 = var0.readLEShort();
 				if (var5 == 65535) {
 					var5 = -1;
 				}
@@ -238,8 +234,8 @@ public enum AttackOption implements MouseWheel {
 
 			int var8;
 			if ((var4 & 1) != 0) {
-				var5 = var0.method6940();
-				var6 = var0.method6940();
+				var5 = var0.readShortA();
+				var6 = var0.readShortA();
 				var7 = var3.x - (var5 - FloorOverlayDefinition.baseX - FloorOverlayDefinition.baseX) * 64;
 				var8 = var3.y - (var6 - class320.baseY - class320.baseY) * 64;
 				if (var7 != 0 || var8 != 0) {
@@ -270,12 +266,12 @@ public enum AttackOption implements MouseWheel {
 
 			if ((var4 & 4) != 0) {
 				var3.field1135 = var0.readByte();
-				var3.field1141 = var0.method6848();
-				var3.field1121 = var0.method6901();
-				var3.field1110 = var0.method6901();
-				var3.field1139 = var0.method6940() + Client.cycle;
-				var3.field1140 = var0.method6855() + Client.cycle;
-				var3.field1101 = var0.method6853();
+				var3.field1141 = var0.readByteC();
+				var3.field1121 = var0.readByteA();
+				var3.field1110 = var0.readByteA();
+				var3.field1139 = var0.readShortA() + Client.cycle;
+				var3.field1140 = var0.readLEShortA() + Client.cycle;
+				var3.field1101 = var0.readLEShort();
 				var3.pathLength = 1;
 				var3.field1152 = 0;
 				var3.field1135 += var3.pathX[0];
@@ -292,7 +288,7 @@ public enum AttackOption implements MouseWheel {
 			}
 
 			if ((var4 & 2) != 0) {
-				var5 = var0.method7007();
+				var5 = var0.readUnsignedByteS();
 				int var9;
 				int var10;
 				int var11;
@@ -318,15 +314,15 @@ public enum AttackOption implements MouseWheel {
 					}
 				}
 
-				var6 = var0.method6844();
+				var6 = var0.readUnsignedByteA();
 				if (var6 > 0) {
 					for (var7 = 0; var7 < var6; ++var7) {
 						var8 = var0.readUShortSmart();
 						var9 = var0.readUShortSmart();
 						if (var9 != 32767) {
 							var10 = var0.readUShortSmart();
-							var11 = var0.method6849();
-							int var12 = var9 > 0 ? var0.method6844() : var11;
+							var11 = var0.readUnsignedByteC();
+							int var12 = var9 > 0 ? var0.readUnsignedByteA() : var11;
 							var3.addHealthBar(var8, Client.cycle, var9, var10, var11, var12);
 						} else {
 							var3.removeHealthBar(var8);

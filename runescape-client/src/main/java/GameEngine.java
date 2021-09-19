@@ -1,28 +1,13 @@
+import net.runelite.mapping.*;
+
 import java.applet.Applet;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.awt.Frame;
-import java.awt.Graphics;
-import java.awt.Insets;
-import java.awt.LayoutManager;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.StringSelection;
-import java.awt.event.ActionEvent;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 import java.awt.image.ImageObserver;
 import java.net.URL;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("at")
 @Implements("GameEngine")
@@ -569,6 +554,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 	)
 	@Export("checkHost")
 	protected final boolean checkHost() {
+		if (true) return true;
 		String var1 = this.getDocumentBase().getHost().toLowerCase();
 		if (!var1.equals("jagex.com") && !var1.endsWith(".jagex.com")) {
 			if (!var1.equals("runescape.com") && !var1.endsWith(".runescape.com")) {

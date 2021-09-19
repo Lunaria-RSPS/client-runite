@@ -1,11 +1,12 @@
-import java.io.DataInputStream;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.URL;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.io.DataInputStream;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.URL;
 
 @ObfuscatedName("ei")
 @Implements("TaskHandler")
@@ -107,6 +108,7 @@ public class TaskHandler implements Runnable {
 	)
 	@Export("newSocketTask")
 	public final Task newSocketTask(String var1, int var2) {
+		new Exception("NEW SOCKET " + var1+":"+var2).printStackTrace();
 		return this.newTask(1, var2, 0, var1);
 	}
 

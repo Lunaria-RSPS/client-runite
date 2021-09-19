@@ -1,8 +1,4 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.mapping.*;
 
 @ObfuscatedName("ix")
 @Implements("ClientPacket")
@@ -659,8 +655,8 @@ public class ClientPacket implements class238 {
 		field2685 = new ClientPacket(105, 11);
 	}
 
-	ClientPacket(int var1, int var2) {
-		this.id = var1;
-		this.length = var2;
+	ClientPacket(int id, int length) {
+		this.id = id;
+		this.length = length;
 	}
 }

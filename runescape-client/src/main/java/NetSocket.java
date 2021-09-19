@@ -1,13 +1,10 @@
+import net.runelite.mapping.*;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("ey")
 @Implements("NetSocket")
@@ -442,15 +439,15 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 
 							byte var7 = -1;
 							if ((var6 & 512) != 0) {
-								var7 = var0.method6901();
+								var7 = var0.readByteA();
 							}
 
 							if ((var6 & 256) != 0) {
-								var5.field1135 = var0.method6899();
-								var5.field1141 = var0.method6899();
-								var5.field1121 = var0.method6848();
-								var5.field1110 = var0.method6899();
-								var5.field1139 = var0.method6940() + Client.cycle;
+								var5.field1135 = var0.readByteS();
+								var5.field1141 = var0.readByteS();
+								var5.field1121 = var0.readByteC();
+								var5.field1110 = var0.readByteS();
+								var5.field1139 = var0.readShortA() + Client.cycle;
 								var5.field1140 = var0.readUnsignedShort() + Client.cycle;
 								var5.field1101 = var0.readUnsignedShort();
 								if (var5.field1074) {
@@ -471,18 +468,18 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 							}
 
 							if ((var6 & 8192) != 0) {
-								Players.field1245[var4] = var0.method6899();
+								Players.field1245[var4] = var0.readByteS();
 							}
 
 							int var8;
 							int var9;
 							if ((var6 & 16) != 0) {
-								var8 = var0.method6940();
+								var8 = var0.readShortA();
 								if (var8 == 65535) {
 									var8 = -1;
 								}
 
-								var9 = var0.method6844();
+								var9 = var0.readUnsignedByteA();
 								PacketWriter.performPlayerAnimation(var5, var8, var9);
 							}
 
@@ -502,7 +499,7 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 							}
 
 							if ((var6 & 8) != 0) {
-								var5.targetIndex = var0.method6940();
+								var5.targetIndex = var0.readShortA();
 								if (var5.targetIndex == 65535) {
 									var5.targetIndex = -1;
 								}
@@ -512,10 +509,10 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 							int var12;
 							int var15;
 							if ((var6 & 64) != 0) {
-								var8 = var0.method6940();
-								PlayerType var16 = (PlayerType)class260.findEnumerated(StructComposition.PlayerType_values(), var0.method6844());
+								var8 = var0.readShortA();
+								PlayerType var16 = (PlayerType)class260.findEnumerated(StructComposition.PlayerType_values(), var0.readUnsignedByteA());
 								boolean var10 = var0.readUnsignedByte() == 1;
-								var11 = var0.method6849();
+								var11 = var0.readUnsignedByteC();
 								var12 = var0.offset;
 								if (var5.username != null && var5.appearance != null) {
 									boolean var13 = false;
@@ -552,7 +549,7 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 							}
 
 							if ((var6 & 2048) != 0) {
-								var5.spotAnimation = var0.method6853();
+								var5.spotAnimation = var0.readLEShort();
 								var8 = var0.readInt();
 								var5.field1134 = var8 >> 16;
 								var5.field1133 = (var8 & 65535) + Client.cycle;
@@ -577,7 +574,7 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 							}
 
 							if ((var6 & 128) != 0) {
-								var5.field1096 = var0.method6853();
+								var5.field1096 = var0.readLEShort();
 								if (var5.pathLength == 0) {
 									var5.orientation = var5.field1096;
 									var5.field1096 = -1;
@@ -585,7 +582,7 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 							}
 
 							if ((var6 & 1) != 0) {
-								var8 = var0.method6844();
+								var8 = var0.readUnsignedByteA();
 								int var18;
 								int var20;
 								int var22;
@@ -618,8 +615,8 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 										var12 = var0.readUShortSmart();
 										if (var12 != 32767) {
 											var22 = var0.readUShortSmart();
-											var18 = var0.method6844();
-											var15 = var12 > 0 ? var0.method7007() : var18;
+											var18 = var0.readUnsignedByteA();
+											var15 = var12 > 0 ? var0.readUnsignedByteS() : var18;
 											var5.addHealthBar(var11, Client.cycle, var12, var22, var18, var15);
 										} else {
 											var5.removeHealthBar(var11);

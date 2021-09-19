@@ -1,8 +1,9 @@
-import java.util.concurrent.Callable;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.util.concurrent.Callable;
 
 @ObfuscatedName("c")
 public class class1 implements Callable {
@@ -193,9 +194,9 @@ public class class1 implements Callable {
 			var14 = (WorldMapRectangle.oculusOrbFocalPointY >> 7) + class320.baseY;
 			PacketBufferNode var15 = FriendSystem.getPacketBufferNode(ClientPacket.field2707, Client.packetWriter.isaacCipher);
 			var15.packetBuffer.writeShort(var14);
-			var15.packetBuffer.method6861(Client.field570);
-			var15.packetBuffer.method6841(var12);
-			var15.packetBuffer.method6851(var13);
+			var15.packetBuffer.writeInt1(Client.field570);
+			var15.packetBuffer.writeByteA(var12);
+			var15.packetBuffer.writeShortA(var13);
 			Client.packetWriter.addNode(var15);
 		}
 

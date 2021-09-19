@@ -23,6 +23,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+plugins {
+    id("com.github.johnrengelman.shadow") version "6.1.0"
+    java
+}
+
 group = "com.openosrs.rs"
 description = "RuneScape Client"
 
@@ -53,5 +58,15 @@ tasks {
         enableAssertions = true
 
         mainClass.set("Main")
+    }
+    
+    shadowJar {
+        archiveBaseName.set("gamepack")
+        archiveClassifier.set(null as String?)
+        archiveVersion.set(null as String?)
+    
+/*        manifest {
+            attributes(mapOf("Main-Class" to appMain))
+        }*/
     }
 }

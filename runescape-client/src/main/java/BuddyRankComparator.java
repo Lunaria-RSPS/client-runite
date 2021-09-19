@@ -184,7 +184,7 @@ public class BuddyRankComparator extends AbstractUserComparator {
 					int var12 = class129.localPlayer.y - var10 >> 7;
 					PacketBufferNode var13 = FriendSystem.getPacketBufferNode(ClientPacket.field2687, Client.packetWriter.isaacCipher);
 					var13.packetBuffer.writeByte(18);
-					var13.packetBuffer.method6841(KeyHandler.KeyHandler_pressedKeys[82] ? (KeyHandler.KeyHandler_pressedKeys[81] ? 2 : 1) : 0);
+					var13.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? (KeyHandler.KeyHandler_pressedKeys[81] ? 2 : 1) : 0);
 					var13.packetBuffer.method6951(var11 + FloorOverlayDefinition.baseX);
 					var13.packetBuffer.method6852(var12 + class320.baseY);
 					var13.packetBuffer.writeByte(var4);

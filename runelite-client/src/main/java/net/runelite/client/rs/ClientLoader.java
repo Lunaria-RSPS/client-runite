@@ -30,13 +30,24 @@ import com.google.common.base.Strings;
 import com.google.common.hash.Hashing;
 import com.google.common.io.ByteStreams;
 import com.openosrs.client.OpenOSRS;
+import lombok.extern.slf4j.Slf4j;
+import net.runelite.api.Client;
+import net.runelite.client.RuneLite;
+import net.runelite.client.RuneLiteProperties;
+import net.runelite.client.ui.FatalErrorDialog;
+import net.runelite.client.ui.SplashScreen;
+import net.runelite.client.util.CountingInputStream;
+import net.runelite.client.util.VerificationException;
+import net.runelite.http.api.worlds.World;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
 import java.applet.Applet;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
@@ -54,24 +65,8 @@ import java.util.function.Supplier;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.JarInputStream;
-import javax.annotation.Nonnull;
-import javax.swing.SwingUtilities;
-import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.Client;
-import net.runelite.client.RuneLite;
-import net.runelite.client.RuneLiteProperties;
-import static net.runelite.client.rs.ClientUpdateCheckMode.AUTO;
-import static net.runelite.client.rs.ClientUpdateCheckMode.NONE;
-import static net.runelite.client.rs.ClientUpdateCheckMode.VANILLA;
-import net.runelite.client.ui.FatalErrorDialog;
-import net.runelite.client.ui.SplashScreen;
-import net.runelite.client.util.CountingInputStream;
-import net.runelite.client.util.VerificationException;
-import net.runelite.http.api.worlds.World;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+
+import static net.runelite.client.rs.ClientUpdateCheckMode.*;
 
 @Slf4j
 @SuppressWarnings("deprecation")
@@ -628,6 +623,8 @@ public class ClientLoader implements Supplier<Applet>
 
 	private void verifyJarEntry(JarEntry je, Certificate[] certs) throws VerificationException
 	{
+		if (true) return;
+		
 		switch (je.getName())
 		{
 			case "META-INF/JAGEXLTD.SF":

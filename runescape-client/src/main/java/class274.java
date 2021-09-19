@@ -27,6 +27,7 @@ public final class class274 {
 	)
 	@Export("loadRegions")
 	static final void loadRegions(boolean var0, PacketBuffer var1) {
+		new Exception("loadRegions("+var0+")").printStackTrace();
 		Client.isInInstance = var0;
 		int var2;
 		int var4;
@@ -38,11 +39,14 @@ public final class class274 {
 			var2 = var1.readUnsignedShort();
 			int var3 = var1.readUnsignedShort();
 			var4 = var1.readUnsignedShort();
+			System.out.println("this shit, " + var2+","+var3+","+var4);
 			class244.xteaKeys = new int[var4][4];
 
 			for (var5 = 0; var5 < var4; ++var5) {
 				for (var6 = 0; var6 < 4; ++var6) {
-					class244.xteaKeys[var5][var6] = var1.readInt();
+					int key = var1.readInt();
+					class244.xteaKeys[var5][var6] = key;
+					System.out.println("load xtea[" + var5 + "]["+var6+"] = " + key);
 				}
 			}
 
@@ -78,7 +82,7 @@ public final class class274 {
 
 			TaskHandler.method2739(var3, var2, true);
 		} else {
-			var2 = var1.method6855();
+			var2 = var1.readLEShortA();
 			boolean var15 = var1.readUnsignedByte() == 1;
 			var4 = var1.readUnsignedShort();
 			var5 = var1.readUnsignedShort();

@@ -1,13 +1,10 @@
+import net.runelite.mapping.*;
+
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Random;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("bl")
 @Implements("ScriptFrame")
@@ -256,7 +253,7 @@ public class ScriptFrame {
 			}
 		}
 
-		class279.worldHost = var0.host;
+		class279.worldHost = "localhost";//var0.host;
 		Client.worldId = var0.id;
 		Client.worldProperties = var0.properties;
 		GameBuild.worldPort = Client.gameBuild == 0 ? 43594 : var0.id + 40000;
@@ -279,7 +276,7 @@ public class ScriptFrame {
 		int var7;
 		int var8;
 		if (class240.field2749 == var0) {
-			var2 = var1.method7007();
+			var2 = var1.readUnsignedByteS();
 			var3 = var2 >> 2;
 			var4 = var2 & 3;
 			var5 = Client.field549[var3];
@@ -300,17 +297,17 @@ public class ScriptFrame {
 			if (class240.field2758 == var0) {
 				var37 = var1.readByte();
 				var3 = var1.method6856();
-				var4 = var1.method6844();
+				var4 = var1.readUnsignedByteA();
 				var5 = var1.readUnsignedByte();
 				var6 = (var5 >> 4 & 7) + JagexCache.field1559;
 				var7 = (var5 & 7) + WorldMapEvent.field2216;
-				var8 = var1.method6844() * 4;
-				var9 = var1.method7007();
-				var10 = var1.method6940();
-				var11 = var1.method6940();
-				byte var40 = var1.method6899();
-				var13 = var1.method6844() * 4;
-				int var41 = var1.method6940();
+				var8 = var1.readUnsignedByteA() * 4;
+				var9 = var1.readUnsignedByteS();
+				var10 = var1.readShortA();
+				var11 = var1.readShortA();
+				byte var40 = var1.readByteS();
+				var13 = var1.readUnsignedByteA() * 4;
+				int var41 = var1.readShortA();
 				var2 = var37 + var6;
 				var12 = var40 + var7;
 				if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104 && var2 >= 0 && var12 >= 0 && var2 < 104 && var12 < 104 && var11 != 65535) {
@@ -329,10 +326,10 @@ public class ScriptFrame {
 					var3 = var1.readUnsignedByte();
 					var4 = var3 >> 4 & 15;
 					var5 = var3 & 7;
-					var6 = var1.method7007();
+					var6 = var1.readUnsignedByteS();
 					var7 = (var6 >> 4 & 7) + JagexCache.field1559;
 					var8 = (var6 & 7) + WorldMapEvent.field2216;
-					var9 = var1.method7007();
+					var9 = var1.readUnsignedByteS();
 					if (var7 >= 0 && var8 >= 0 && var7 < 104 && var8 < 104) {
 						var10 = var4 + 1;
 						if (class129.localPlayer.pathX[0] >= var7 - var10 && class129.localPlayer.pathX[0] <= var7 + var10 && class129.localPlayer.pathY[0] >= var8 - var10 && class129.localPlayer.pathY[0] <= var10 + var8 && VarbitComposition.clientPreferences.areaSoundEffectsVolume != 0 && var5 > 0 && Client.soundEffectCount < 50) {
@@ -350,7 +347,7 @@ public class ScriptFrame {
 				if (class240.field2752 == var0) {
 					var2 = var1.readUnsignedShort();
 					var3 = var1.readUnsignedShort();
-					var4 = var1.method6844();
+					var4 = var1.readUnsignedByteA();
 					var5 = (var4 >> 4 & 7) + JagexCache.field1559;
 					var6 = (var4 & 7) + WorldMapEvent.field2216;
 					if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
@@ -366,7 +363,7 @@ public class ScriptFrame {
 					}
 
 				} else if (class240.field2751 == var0) {
-					var2 = var1.method6940();
+					var2 = var1.readShortA();
 					var3 = var1.readUnsignedByte();
 					var4 = (var3 >> 4 & 7) + JagexCache.field1559;
 					var5 = (var3 & 7) + WorldMapEvent.field2216;
@@ -390,7 +387,7 @@ public class ScriptFrame {
 
 				} else if (class240.field2750 == var0) {
 					var2 = var1.readUnsignedShort();
-					var3 = var1.method7007();
+					var3 = var1.readUnsignedByteS();
 					var4 = (var3 >> 4 & 7) + JagexCache.field1559;
 					var5 = (var3 & 7) + WorldMapEvent.field2216;
 					var6 = var1.readUnsignedByte();
@@ -402,11 +399,11 @@ public class ScriptFrame {
 					}
 
 				} else if (class240.field2756 == var0) {
-					var2 = var1.method7007();
+					var2 = var1.readUnsignedByteS();
 					var3 = (var2 >> 4 & 7) + JagexCache.field1559;
 					var4 = (var2 & 7) + WorldMapEvent.field2216;
-					var5 = var1.method6853();
-					var6 = var1.method6844();
+					var5 = var1.readLEShort();
+					var6 = var1.readUnsignedByteA();
 					var7 = var6 >> 2;
 					var8 = var6 & 3;
 					var9 = Client.field549[var7];
@@ -464,8 +461,8 @@ public class ScriptFrame {
 
 				} else if (class240.field2760 == var0) {
 					var2 = var1.readUnsignedShort();
-					var3 = var1.method6940();
-					var4 = var1.method6844();
+					var3 = var1.readShortA();
+					var4 = var1.readUnsignedByteA();
 					var5 = (var4 >> 4 & 7) + JagexCache.field1559;
 					var6 = (var4 & 7) + WorldMapEvent.field2216;
 					var7 = var1.readUnsignedByte();
@@ -478,20 +475,20 @@ public class ScriptFrame {
 
 				} else {
 					if (class240.field2753 == var0) {
-						var37 = var1.method6901();
+						var37 = var1.readByteA();
 						var3 = var1.readUnsignedByte();
 						var4 = (var3 >> 4 & 7) + JagexCache.field1559;
 						var5 = (var3 & 7) + WorldMapEvent.field2216;
-						var6 = var1.method6940();
+						var6 = var1.readShortA();
 						byte var38 = var1.readByte();
 						var8 = var1.readUnsignedShort();
-						byte var39 = var1.method6848();
-						var10 = var1.method7007();
+						byte var39 = var1.readByteC();
+						var10 = var1.readUnsignedByteS();
 						var11 = var10 >> 2;
 						var12 = var10 & 3;
 						var13 = Client.field549[var11];
 						byte var14 = var1.readByte();
-						int var15 = var1.method6855();
+						int var15 = var1.readLEShortA();
 						int var16 = var1.readUnsignedShort();
 						Player var17;
 						if (var15 == Client.localPlayerIndex) {
@@ -551,10 +548,10 @@ public class ScriptFrame {
 					}
 
 					if (class240.field2757 == var0) {
-						var2 = var1.method6940();
-						var3 = var1.method6940();
-						var4 = var1.method6940();
-						var5 = var1.method6849();
+						var2 = var1.readShortA();
+						var3 = var1.readShortA();
+						var4 = var1.readShortA();
+						var5 = var1.readUnsignedByteC();
 						var6 = (var5 >> 4 & 7) + JagexCache.field1559;
 						var7 = (var5 & 7) + WorldMapEvent.field2216;
 						if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
