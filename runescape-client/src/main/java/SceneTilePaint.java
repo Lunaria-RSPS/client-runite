@@ -1,8 +1,4 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.mapping.*;
 
 @ObfuscatedName("hw")
 @Implements("SceneTilePaint")
@@ -67,7 +63,7 @@ public final class SceneTilePaint {
 		PacketBufferNode var2 = FriendSystem.getPacketBufferNode(ClientPacket.field2697, Client.packetWriter.isaacCipher);
 		var2.packetBuffer.writeByte(BufferedSink.stringCp1252NullTerminatedByteSize(var0) + 1);
 		var2.packetBuffer.writeStringCp1252NullTerminated(var0);
-		var2.packetBuffer.method6819(var1);
+		var2.packetBuffer.writeByteC(var1);
 		Client.packetWriter.addNode(var2);
 	}
 

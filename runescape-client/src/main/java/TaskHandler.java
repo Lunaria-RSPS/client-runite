@@ -108,7 +108,6 @@ public class TaskHandler implements Runnable {
 	)
 	@Export("newSocketTask")
 	public final Task newSocketTask(String var1, int var2) {
-		new Exception("NEW SOCKET " + var1+":"+var2).printStackTrace();
 		return this.newTask(1, var2, 0, var1);
 	}
 

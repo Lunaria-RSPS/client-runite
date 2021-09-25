@@ -503,6 +503,7 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 								if (var5.targetIndex == 65535) {
 									var5.targetIndex = -1;
 								}
+								System.out.println("player " + var5.username.name + ", " + var5.targetIndex + " for " + var6 + " (" + Integer.toBinaryString(var6) + ")");
 							}
 
 							int var11;

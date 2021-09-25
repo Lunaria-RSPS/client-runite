@@ -29,7 +29,7 @@ public class class328 {
 				} else if (var0 == 4) {
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2715, Client.packetWriter.isaacCipher);
 					var8.packetBuffer.writeShortA(var3[var6]);
-					var8.packetBuffer.method6819(0);
+					var8.packetBuffer.writeByteC(0);
 					Client.packetWriter.addNode(var8);
 				} else if (var0 == 6) {
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2657, Client.packetWriter.isaacCipher);
@@ -38,8 +38,8 @@ public class class328 {
 					Client.packetWriter.addNode(var8);
 				} else if (var0 == 7) {
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2676, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.method6951(var3[var6]);
-					var8.packetBuffer.method6819(0);
+					var8.packetBuffer.writeLEShort(var3[var6]);
+					var8.packetBuffer.writeByteC(0);
 					Client.packetWriter.addNode(var8);
 				}
 

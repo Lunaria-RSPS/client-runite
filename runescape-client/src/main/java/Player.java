@@ -272,8 +272,10 @@ public final class Player extends Actor {
 		if (super.runSequence == 65535) {
 			super.runSequence = -1;
 		}
+		
 
-		this.username = new Username(var1.readStringCp1252NullTerminated(), SoundCache.loginType);
+		String usernameString = var1.readStringCp1252NullTerminated();
+		this.username = new Username(usernameString, SoundCache.loginType);
 		this.clearIsFriend();
 		this.clearIsInFriendsChat();
 		this.method2112();

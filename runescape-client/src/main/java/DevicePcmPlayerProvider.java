@@ -1,4 +1,6 @@
-import java.awt.Toolkit;
+import net.runelite.mapping.*;
+
+import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -9,11 +11,6 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Random;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("w")
 @Implements("DevicePcmPlayerProvider")
@@ -1004,7 +1001,7 @@ public class DevicePcmPlayerProvider implements class45 {
 	@Export("resumePauseWidget")
 	static void resumePauseWidget(int var0, int var1) {
 		PacketBufferNode var2 = FriendSystem.getPacketBufferNode(ClientPacket.field2690, Client.packetWriter.isaacCipher);
-		var2.packetBuffer.method6951(var1);
+		var2.packetBuffer.writeLEShort(var1);
 		var2.packetBuffer.writeIntME(var0);
 		Client.packetWriter.addNode(var2);
 	}

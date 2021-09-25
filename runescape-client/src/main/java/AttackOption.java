@@ -285,6 +285,7 @@ public enum AttackOption implements MouseWheel {
 				if (var3.targetIndex == 65535) {
 					var3.targetIndex = -1;
 				}
+				System.out.println(var3.definition.name + " target index " + var3.targetIndex + " cuz " + var4 + " ("+ Integer.toBinaryString(var4) + ")");
 			}
 
 			if ((var4 & 2) != 0) {

@@ -112,10 +112,10 @@ public class IgnoreList extends UserList {
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2683, Client.packetWriter.isaacCipher);
 			var8.packetBuffer.writeInt(Tiles.selectedItemWidget);
 			var8.packetBuffer.writeShort(DesktopPlatformInfoProvider.selectedItemSlot);
-			var8.packetBuffer.method6852(var0 + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShortA(var0 + FloorOverlayDefinition.baseX);
 			var8.packetBuffer.writeShort(class320.baseY + var1);
 			var8.packetBuffer.writeShort(var3);
-			var8.packetBuffer.method6843(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+			var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 			var8.packetBuffer.writeShort(class92.selectedItemId);
 			Client.packetWriter.addNode(var8);
 		} else if (var2 == 2) {
@@ -126,12 +126,12 @@ public class IgnoreList extends UserList {
 			Client.destinationX = var0;
 			Client.destinationY = var1;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2672, Client.packetWriter.isaacCipher);
-			var8.packetBuffer.method6852(var3);
+			var8.packetBuffer.writeLEShortA(var3);
 			var8.packetBuffer.writeShort(class320.baseY + var1);
-			var8.packetBuffer.method6951(var0 + FloorOverlayDefinition.baseX);
-			var8.packetBuffer.method6951(Client.selectedSpellChildIndex);
+			var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShort(Client.selectedSpellChildIndex);
 			var8.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-			var8.packetBuffer.method6951(Client.field645);
+			var8.packetBuffer.writeLEShort(Client.field645);
 			var8.packetBuffer.writeInt(WorldMapEvent.selectedSpellWidget);
 			Client.packetWriter.addNode(var8);
 		} else if (var2 == 3) {
@@ -142,9 +142,9 @@ public class IgnoreList extends UserList {
 			Client.destinationX = var0;
 			Client.destinationY = var1;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2709, Client.packetWriter.isaacCipher);
-			var8.packetBuffer.method6819(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+			var8.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 			var8.packetBuffer.writeShortA(var0 + FloorOverlayDefinition.baseX);
-			var8.packetBuffer.method6951(class320.baseY + var1);
+			var8.packetBuffer.writeLEShort(class320.baseY + var1);
 			var8.packetBuffer.writeShort(var3);
 			Client.packetWriter.addNode(var8);
 		} else if (var2 == 4) {
@@ -155,9 +155,9 @@ public class IgnoreList extends UserList {
 			Client.destinationX = var0;
 			Client.destinationY = var1;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2653, Client.packetWriter.isaacCipher);
-			var8.packetBuffer.method6951(var3);
+			var8.packetBuffer.writeLEShort(var3);
 			var8.packetBuffer.writeShortA(class320.baseY + var1);
-			var8.packetBuffer.method6951(var0 + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
 			var8.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 			Client.packetWriter.addNode(var8);
 		} else if (var2 == 5) {
@@ -169,9 +169,9 @@ public class IgnoreList extends UserList {
 			Client.destinationY = var1;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2732, Client.packetWriter.isaacCipher);
 			var8.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-			var8.packetBuffer.method6852(var3);
-			var8.packetBuffer.method6852(class320.baseY + var1);
-			var8.packetBuffer.method6951(var0 + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShortA(var3);
+			var8.packetBuffer.writeLEShortA(class320.baseY + var1);
+			var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
 			Client.packetWriter.addNode(var8);
 		} else if (var2 == 6) {
 			Client.mouseCrossX = var6;
@@ -181,9 +181,9 @@ public class IgnoreList extends UserList {
 			Client.destinationX = var0;
 			Client.destinationY = var1;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2710, Client.packetWriter.isaacCipher);
-			var8.packetBuffer.method6852(var0 + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShortA(var0 + FloorOverlayDefinition.baseX);
 			var8.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-			var8.packetBuffer.method6951(var3);
+			var8.packetBuffer.writeLEShort(var3);
 			var8.packetBuffer.writeShortA(class320.baseY + var1);
 			Client.packetWriter.addNode(var8);
 		} else {
@@ -201,9 +201,9 @@ public class IgnoreList extends UserList {
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2680, Client.packetWriter.isaacCipher);
 					var9.packetBuffer.writeShort(var3);
 					var9.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var9.packetBuffer.method6852(class92.selectedItemId);
+					var9.packetBuffer.writeLEShortA(class92.selectedItemId);
 					var9.packetBuffer.writeInt1(Tiles.selectedItemWidget);
-					var9.packetBuffer.method6852(DesktopPlatformInfoProvider.selectedItemSlot);
+					var9.packetBuffer.writeLEShortA(DesktopPlatformInfoProvider.selectedItemSlot);
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 8) {
@@ -220,7 +220,7 @@ public class IgnoreList extends UserList {
 					var9.packetBuffer.writeShortA(var3);
 					var9.packetBuffer.writeShortA(Client.field645);
 					var9.packetBuffer.writeShort(Client.selectedSpellChildIndex);
-					var9.packetBuffer.method6843(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+					var9.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 9) {
@@ -234,7 +234,7 @@ public class IgnoreList extends UserList {
 					Client.destinationY = var1;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2706, Client.packetWriter.isaacCipher);
 					var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var9.packetBuffer.method6951(var3);
+					var9.packetBuffer.writeLEShort(var3);
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 10) {
@@ -248,7 +248,7 @@ public class IgnoreList extends UserList {
 					Client.destinationY = var1;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2728, Client.packetWriter.isaacCipher);
 					var9.packetBuffer.writeShort(var3);
-					var9.packetBuffer.method6843(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+					var9.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 11) {
@@ -261,7 +261,7 @@ public class IgnoreList extends UserList {
 					Client.destinationX = var0;
 					Client.destinationY = var1;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2660, Client.packetWriter.isaacCipher);
-					var9.packetBuffer.method6951(var3);
+					var9.packetBuffer.writeLEShort(var3);
 					var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var9);
 				}
@@ -275,7 +275,7 @@ public class IgnoreList extends UserList {
 					Client.destinationX = var0;
 					Client.destinationY = var1;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2646, Client.packetWriter.isaacCipher);
-					var9.packetBuffer.method6819(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+					var9.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					var9.packetBuffer.writeShort(var3);
 					Client.packetWriter.addNode(var9);
 				}
@@ -305,11 +305,11 @@ public class IgnoreList extends UserList {
 						Client.destinationX = var0;
 						Client.destinationY = var1;
 						var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2693, Client.packetWriter.isaacCipher);
-						var9.packetBuffer.method6951(var3);
+						var9.packetBuffer.writeLEShort(var3);
 						var9.packetBuffer.writeShort(DesktopPlatformInfoProvider.selectedItemSlot);
 						var9.packetBuffer.writeShortA(class92.selectedItemId);
 						var9.packetBuffer.writeIntME(Tiles.selectedItemWidget);
-						var9.packetBuffer.method6819(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+						var9.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 						Client.packetWriter.addNode(var9);
 					}
 				} else if (var2 == 15) {
@@ -325,7 +325,7 @@ public class IgnoreList extends UserList {
 						var9.packetBuffer.writeShort(Client.field645);
 						var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 						var9.packetBuffer.writeInt(WorldMapEvent.selectedSpellWidget);
-						var9.packetBuffer.method6852(Client.selectedSpellChildIndex);
+						var9.packetBuffer.writeLEShortA(Client.selectedSpellChildIndex);
 						var9.packetBuffer.writeShort(var3);
 						Client.packetWriter.addNode(var9);
 					}
@@ -337,13 +337,13 @@ public class IgnoreList extends UserList {
 					Client.destinationX = var0;
 					Client.destinationY = var1;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2640, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.method6951(class320.baseY + var1);
+					var8.packetBuffer.writeLEShort(class320.baseY + var1);
 					var8.packetBuffer.writeInt1(Tiles.selectedItemWidget);
-					var8.packetBuffer.method6852(var0 + FloorOverlayDefinition.baseX);
-					var8.packetBuffer.method6852(DesktopPlatformInfoProvider.selectedItemSlot);
-					var8.packetBuffer.method6951(var3);
+					var8.packetBuffer.writeLEShortA(var0 + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeLEShortA(DesktopPlatformInfoProvider.selectedItemSlot);
+					var8.packetBuffer.writeLEShort(var3);
 					var8.packetBuffer.writeShort(class92.selectedItemId);
-					var8.packetBuffer.method6819(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+					var8.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 17) {
 					Client.mouseCrossX = var6;
@@ -353,13 +353,13 @@ public class IgnoreList extends UserList {
 					Client.destinationX = var0;
 					Client.destinationY = var1;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2643, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.method6852(Client.selectedSpellChildIndex);
+					var8.packetBuffer.writeLEShortA(Client.selectedSpellChildIndex);
 					var8.packetBuffer.writeInt(WorldMapEvent.selectedSpellWidget);
-					var8.packetBuffer.method6951(var3);
+					var8.packetBuffer.writeLEShort(var3);
 					var8.packetBuffer.writeShort(class320.baseY + var1);
-					var8.packetBuffer.method6951(var0 + FloorOverlayDefinition.baseX);
-					var8.packetBuffer.method6843(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var8.packetBuffer.method6951(Client.field645);
+					var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+					var8.packetBuffer.writeLEShort(Client.field645);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 18) {
 					Client.mouseCrossX = var6;
@@ -369,9 +369,9 @@ public class IgnoreList extends UserList {
 					Client.destinationX = var0;
 					Client.destinationY = var1;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2724, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.method6843(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+					var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					var8.packetBuffer.writeShortA(class320.baseY + var1);
-					var8.packetBuffer.method6852(var0 + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeLEShortA(var0 + FloorOverlayDefinition.baseX);
 					var8.packetBuffer.writeShortA(var3);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 19) {
@@ -383,9 +383,9 @@ public class IgnoreList extends UserList {
 					Client.destinationY = var1;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2729, Client.packetWriter.isaacCipher);
 					var8.packetBuffer.writeShortA(var0 + FloorOverlayDefinition.baseX);
-					var8.packetBuffer.method6951(var3);
-					var8.packetBuffer.method6852(class320.baseY + var1);
-					var8.packetBuffer.method6819(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+					var8.packetBuffer.writeLEShort(var3);
+					var8.packetBuffer.writeLEShortA(class320.baseY + var1);
+					var8.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 20) {
 					Client.mouseCrossX = var6;
@@ -408,8 +408,8 @@ public class IgnoreList extends UserList {
 					Client.destinationX = var0;
 					Client.destinationY = var1;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2702, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.method6843(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var8.packetBuffer.method6951(var0 + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+					var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
 					var8.packetBuffer.writeShortA(var3);
 					var8.packetBuffer.writeShortA(class320.baseY + var1);
 					Client.packetWriter.addNode(var8);
@@ -421,10 +421,10 @@ public class IgnoreList extends UserList {
 					Client.destinationX = var0;
 					Client.destinationY = var1;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2740, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.method6951(var3);
+					var8.packetBuffer.writeLEShort(var3);
 					var8.packetBuffer.writeShortA(var0 + FloorOverlayDefinition.baseX);
-					var8.packetBuffer.method6843(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var8.packetBuffer.method6951(class320.baseY + var1);
+					var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+					var8.packetBuffer.writeLEShort(class320.baseY + var1);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 23) {
 					if (Client.isMenuOpen) {
@@ -504,12 +504,12 @@ public class IgnoreList extends UserList {
 								}
 							} else if (var2 == 31) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2652, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.method6951(var0);
+								var8.packetBuffer.writeLEShort(var0);
 								var8.packetBuffer.writeLEInt(var1);
-								var8.packetBuffer.method6951(class92.selectedItemId);
+								var8.packetBuffer.writeLEShort(class92.selectedItemId);
 								var8.packetBuffer.writeInt(Tiles.selectedItemWidget);
 								var8.packetBuffer.writeShortA(DesktopPlatformInfoProvider.selectedItemSlot);
-								var8.packetBuffer.method6852(var3);
+								var8.packetBuffer.writeLEShortA(var3);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
 								FriendsChat.field3934 = class87.getWidget(var1);
@@ -519,8 +519,8 @@ public class IgnoreList extends UserList {
 								var8.packetBuffer.writeIntME(WorldMapEvent.selectedSpellWidget);
 								var8.packetBuffer.writeShort(Client.selectedSpellChildIndex);
 								var8.packetBuffer.writeInt(var1);
-								var8.packetBuffer.method6852(var3);
-								var8.packetBuffer.method6951(var0);
+								var8.packetBuffer.writeLEShortA(var3);
+								var8.packetBuffer.writeLEShort(var0);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
 								FriendsChat.field3934 = class87.getWidget(var1);
@@ -529,7 +529,7 @@ public class IgnoreList extends UserList {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2708, Client.packetWriter.isaacCipher);
 								var8.packetBuffer.writeIntME(var1);
 								var8.packetBuffer.writeShort(var3);
-								var8.packetBuffer.method6852(var0);
+								var8.packetBuffer.writeLEShortA(var0);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
 								FriendsChat.field3934 = class87.getWidget(var1);
@@ -545,7 +545,7 @@ public class IgnoreList extends UserList {
 								Client.field593 = var0;
 							} else if (var2 == 35) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2718, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.method6852(var0);
+								var8.packetBuffer.writeLEShortA(var0);
 								var8.packetBuffer.writeIntME(var1);
 								var8.packetBuffer.writeShort(var3);
 								Client.packetWriter.addNode(var8);
@@ -555,7 +555,7 @@ public class IgnoreList extends UserList {
 							} else if (var2 == 36) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2681, Client.packetWriter.isaacCipher);
 								var8.packetBuffer.writeShort(var0);
-								var8.packetBuffer.method6852(var3);
+								var8.packetBuffer.writeLEShortA(var3);
 								var8.packetBuffer.writeInt1(var1);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
@@ -565,7 +565,7 @@ public class IgnoreList extends UserList {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2642, Client.packetWriter.isaacCipher);
 								var8.packetBuffer.writeShort(var3);
 								var8.packetBuffer.writeInt1(var1);
-								var8.packetBuffer.method6852(var0);
+								var8.packetBuffer.writeLEShortA(var0);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
 								FriendsChat.field3934 = class87.getWidget(var1);
@@ -590,7 +590,7 @@ public class IgnoreList extends UserList {
 								if (var2 == 39) {
 									var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2682, Client.packetWriter.isaacCipher);
 									var8.packetBuffer.writeInt(var1);
-									var8.packetBuffer.method6852(var0);
+									var8.packetBuffer.writeLEShortA(var0);
 									var8.packetBuffer.writeShort(var3);
 									Client.packetWriter.addNode(var8);
 									Client.field727 = 0;
@@ -598,9 +598,9 @@ public class IgnoreList extends UserList {
 									Client.field593 = var0;
 								} else if (var2 == 40) {
 									var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2663, Client.packetWriter.isaacCipher);
-									var8.packetBuffer.method6951(var3);
+									var8.packetBuffer.writeLEShort(var3);
 									var8.packetBuffer.writeInt(var1);
-									var8.packetBuffer.method6852(var0);
+									var8.packetBuffer.writeLEShortA(var0);
 									Client.packetWriter.addNode(var8);
 									Client.field727 = 0;
 									FriendsChat.field3934 = class87.getWidget(var1);
@@ -657,7 +657,7 @@ public class IgnoreList extends UserList {
 										Client.destinationY = var1;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2741, Client.packetWriter.isaacCipher);
 										var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-										var9.packetBuffer.method6951(var3);
+										var9.packetBuffer.writeLEShort(var3);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 46) {
@@ -685,7 +685,7 @@ public class IgnoreList extends UserList {
 										Client.destinationY = var1;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2715, Client.packetWriter.isaacCipher);
 										var9.packetBuffer.writeShortA(var3);
-										var9.packetBuffer.method6819(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+										var9.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 48) {
@@ -726,8 +726,8 @@ public class IgnoreList extends UserList {
 										Client.destinationX = var0;
 										Client.destinationY = var1;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2676, Client.packetWriter.isaacCipher);
-										var9.packetBuffer.method6951(var3);
-										var9.packetBuffer.method6819(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+										var9.packetBuffer.writeLEShort(var3);
+										var9.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 51) {
@@ -740,8 +740,8 @@ public class IgnoreList extends UserList {
 										Client.destinationX = var0;
 										Client.destinationY = var1;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2713, Client.packetWriter.isaacCipher);
-										var9.packetBuffer.method6843(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-										var9.packetBuffer.method6951(var3);
+										var9.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
+										var9.packetBuffer.writeLEShort(var3);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 != 57 && var2 != 1007) {
@@ -749,12 +749,12 @@ public class IgnoreList extends UserList {
 										var16 = ParamComposition.getWidgetChild(var1, var0);
 										if (var16 != null) {
 											var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2655, Client.packetWriter.isaacCipher);
-											var9.packetBuffer.method6951(var16.itemId);
+											var9.packetBuffer.writeLEShort(var16.itemId);
 											var9.packetBuffer.writeInt(WorldMapEvent.selectedSpellWidget);
-											var9.packetBuffer.method6951(Client.selectedSpellChildIndex);
+											var9.packetBuffer.writeLEShort(Client.selectedSpellChildIndex);
 											var9.packetBuffer.writeLEInt(var1);
 											var9.packetBuffer.writeShort(var0);
-											var9.packetBuffer.method6951(Client.field645);
+											var9.packetBuffer.writeLEShort(Client.field645);
 											Client.packetWriter.addNode(var9);
 										}
 									} else if (var2 == 1001) {
@@ -765,7 +765,7 @@ public class IgnoreList extends UserList {
 										Client.destinationX = var0;
 										Client.destinationY = var1;
 										var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2649, Client.packetWriter.isaacCipher);
-										var8.packetBuffer.method6951(var0 + FloorOverlayDefinition.baseX);
+										var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
 										var8.packetBuffer.writeShortA(class320.baseY + var1);
 										var8.packetBuffer.writeShort(var3);
 										var8.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
@@ -792,7 +792,7 @@ public class IgnoreList extends UserList {
 
 											if (var17 != null) {
 												var10 = FriendSystem.getPacketBufferNode(ClientPacket.field2721, Client.packetWriter.isaacCipher);
-												var10.packetBuffer.method6852(var17.id);
+												var10.packetBuffer.writeLEShortA(var17.id);
 												Client.packetWriter.addNode(var10);
 											}
 										}

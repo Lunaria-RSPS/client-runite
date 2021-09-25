@@ -3565,8 +3565,6 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 					}
 
 					class135.method2672(16);
-					
-					System.out.println("GUCCI NIGGA! :)");
 				}
 
 				if (loginState == 16) {
@@ -3886,7 +3884,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 							field573 = false;
 							var14 = FriendSystem.getPacketBufferNode(ClientPacket.field2647, packetWriter.isaacCipher);
 							var14.packetBuffer.writeShortA(camAngleX);
-							var14.packetBuffer.method6951(camAngleY);
+							var14.packetBuffer.writeLEShort(camAngleY);
 							packetWriter.addNode(var14);
 						}
 
@@ -4216,8 +4214,8 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 
 																			PacketBufferNode var28 = FriendSystem.getPacketBufferNode(ClientPacket.field2678, packetWriter.isaacCipher);
 																			var28.packetBuffer.writeIntME(Decimator.dragInventoryWidget.id);
-																			var28.packetBuffer.method6951(dragItemSlotSource);
-																			var28.packetBuffer.method6819(var36);
+																			var28.packetBuffer.writeLEShort(dragItemSlotSource);
+																			var28.packetBuffer.writeByteC(var36);
 																			var28.packetBuffer.writeShortA(dragItemSlotDestination);
 																			packetWriter.addNode(var28);
 																		}
@@ -4245,8 +4243,9 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 																PacketBufferNode var44 = FriendSystem.getPacketBufferNode(ClientPacket.field2722, packetWriter.isaacCipher);
 																var44.packetBuffer.writeByte(5);
 																var44.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? (KeyHandler.KeyHandler_pressedKeys[81] ? 2 : 1) : 0);
-																var44.packetBuffer.method6951(var3 + FloorOverlayDefinition.baseX);
-																var44.packetBuffer.method6852(var4 + class320.baseY);
+																var44.packetBuffer.writeLEShort(var3 + FloorOverlayDefinition.baseX);
+																var44.packetBuffer.writeLEShortA(var4 + class320.baseY);
+																System.out.println("yooo " + var44.clientPacketLength + ", " + var44.packetBuffer.offset + ", " + var44.packetBuffer.array.length);
 																packetWriter.addNode(var44);
 																Scene.method4193();
 																mouseCrossX = MouseHandler.MouseHandler_lastPressedX;
@@ -4615,6 +4614,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 
 					var1.serverPacket = var4[var5];
 					var1.serverPacketLength = var1.serverPacket.length;
+					//System.out.println("INCOMING PACKET " + var5 + ", length=" + var1.serverPacket.length);
 				}
 
 				if (var1.serverPacketLength == -1) {
@@ -5333,7 +5333,6 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 				if (ServerPacket.field2779 == var1.serverPacket) {
 					WorldMapEvent.field2216 = var3.readUnsignedByteA();
 					JagexCache.field1559 = var3.readUnsignedByteS();
-					System.out.println(WorldMapEvent.field2216+","+JagexCache.field1559);
 
 					for (var17 = JagexCache.field1559; var17 < JagexCache.field1559 + 8; ++var17) {
 						for (var5 = WorldMapEvent.field2216; var5 < WorldMapEvent.field2216 + 8; ++var5) {
@@ -6437,10 +6436,10 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 					if (draggedOnWidget != null && Message.method1099(clickedWidget) != null) {
 						PacketBufferNode var12 = FriendSystem.getPacketBufferNode(ClientPacket.field2698, packetWriter.isaacCipher);
 						var12.packetBuffer.writeInt1(clickedWidget.id);
-						var12.packetBuffer.method6951(draggedOnWidget.childIndex);
-						var12.packetBuffer.method6852(clickedWidget.childIndex);
-						var12.packetBuffer.method6852(draggedOnWidget.itemId);
-						var12.packetBuffer.method6852(clickedWidget.itemId);
+						var12.packetBuffer.writeLEShort(draggedOnWidget.childIndex);
+						var12.packetBuffer.writeLEShortA(clickedWidget.childIndex);
+						var12.packetBuffer.writeLEShortA(draggedOnWidget.itemId);
+						var12.packetBuffer.writeLEShortA(clickedWidget.itemId);
 						var12.packetBuffer.writeLEInt(draggedOnWidget.id);
 						packetWriter.addNode(var12);
 					}
