@@ -1088,7 +1088,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 	@ObfuscatedGetter(
 		intValue = -1561877611
 	)
-	static int field645;
+	static int spellItemId;
 	@ObfuscatedName("nq")
 	@Export("selectedSpellActionName")
 	static String selectedSpellActionName;
@@ -1487,7 +1487,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 		selectedItemName = null;
 		isSpellSelected = false;
 		selectedSpellChildIndex = -1;
-		field645 = -1;
+		spellItemId = -1;
 		selectedSpellActionName = null;
 		selectedSpellName = null;
 		rootInterface = -1;
@@ -5466,6 +5466,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 					}
 
 					if (var18 != null) {
+						System.out.println(var18.id + ", " + var18.parentId);
 						for (var19 = 0; var19 < var18.itemIds.length; ++var19) {
 							var18.itemIds[var19] = 0;
 							var18.itemQuantities[var19] = 0;

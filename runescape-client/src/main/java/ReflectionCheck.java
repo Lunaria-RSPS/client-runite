@@ -1,10 +1,7 @@
+import net.runelite.mapping.*;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("bp")
 @Implements("ReflectionCheck")
@@ -112,7 +109,7 @@ public class ReflectionCheck extends Node {
 				class139.runScriptEvent(var1);
 			}
 
-			Client.field645 = -1;
+			Client.spellItemId = -1;
 			Client.isSpellSelected = false;
 			Actor.invalidateWidget(var0);
 		}

@@ -96,7 +96,7 @@ public class IgnoreList extends UserList {
 		garbageValue = "-29"
 	)
 	@Export("menuAction")
-	static final void menuAction(int var0, int var1, int var2, int var3, String var4, String var5, int var6, int var7) {
+	static final void menuAction(int slot, int widgetId, int var2, int id, String var4, String var5, int var6, int var7) {
 		if (var2 >= 2000) {
 			var2 -= 2000;
 		}
@@ -107,14 +107,14 @@ public class IgnoreList extends UserList {
 			Client.mouseCrossY = var7;
 			Client.mouseCrossColor = 2;
 			Client.mouseCrossState = 0;
-			Client.destinationX = var0;
-			Client.destinationY = var1;
+			Client.destinationX = slot;
+			Client.destinationY = widgetId;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2683, Client.packetWriter.isaacCipher);
 			var8.packetBuffer.writeInt(Tiles.selectedItemWidget);
 			var8.packetBuffer.writeShort(DesktopPlatformInfoProvider.selectedItemSlot);
-			var8.packetBuffer.writeLEShortA(var0 + FloorOverlayDefinition.baseX);
-			var8.packetBuffer.writeShort(class320.baseY + var1);
-			var8.packetBuffer.writeShort(var3);
+			var8.packetBuffer.writeLEShortA(slot + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeShort(class320.baseY + widgetId);
+			var8.packetBuffer.writeShort(id);
 			var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 			var8.packetBuffer.writeShort(class92.selectedItemId);
 			Client.packetWriter.addNode(var8);
@@ -123,15 +123,15 @@ public class IgnoreList extends UserList {
 			Client.mouseCrossY = var7;
 			Client.mouseCrossColor = 2;
 			Client.mouseCrossState = 0;
-			Client.destinationX = var0;
-			Client.destinationY = var1;
+			Client.destinationX = slot;
+			Client.destinationY = widgetId;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2672, Client.packetWriter.isaacCipher);
-			var8.packetBuffer.writeLEShortA(var3);
-			var8.packetBuffer.writeShort(class320.baseY + var1);
-			var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShortA(id);
+			var8.packetBuffer.writeShort(class320.baseY + widgetId);
+			var8.packetBuffer.writeLEShort(slot + FloorOverlayDefinition.baseX);
 			var8.packetBuffer.writeLEShort(Client.selectedSpellChildIndex);
 			var8.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-			var8.packetBuffer.writeLEShort(Client.field645);
+			var8.packetBuffer.writeLEShort(Client.spellItemId);
 			var8.packetBuffer.writeInt(WorldMapEvent.selectedSpellWidget);
 			Client.packetWriter.addNode(var8);
 		} else if (var2 == 3) {
@@ -139,25 +139,25 @@ public class IgnoreList extends UserList {
 			Client.mouseCrossY = var7;
 			Client.mouseCrossColor = 2;
 			Client.mouseCrossState = 0;
-			Client.destinationX = var0;
-			Client.destinationY = var1;
+			Client.destinationX = slot;
+			Client.destinationY = widgetId;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2709, Client.packetWriter.isaacCipher);
 			var8.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-			var8.packetBuffer.writeShortA(var0 + FloorOverlayDefinition.baseX);
-			var8.packetBuffer.writeLEShort(class320.baseY + var1);
-			var8.packetBuffer.writeShort(var3);
+			var8.packetBuffer.writeShortA(slot + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShort(class320.baseY + widgetId);
+			var8.packetBuffer.writeShort(id);
 			Client.packetWriter.addNode(var8);
 		} else if (var2 == 4) {
 			Client.mouseCrossX = var6;
 			Client.mouseCrossY = var7;
 			Client.mouseCrossColor = 2;
 			Client.mouseCrossState = 0;
-			Client.destinationX = var0;
-			Client.destinationY = var1;
+			Client.destinationX = slot;
+			Client.destinationY = widgetId;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2653, Client.packetWriter.isaacCipher);
-			var8.packetBuffer.writeLEShort(var3);
-			var8.packetBuffer.writeShortA(class320.baseY + var1);
-			var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShort(id);
+			var8.packetBuffer.writeShortA(class320.baseY + widgetId);
+			var8.packetBuffer.writeLEShort(slot + FloorOverlayDefinition.baseX);
 			var8.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 			Client.packetWriter.addNode(var8);
 		} else if (var2 == 5) {
@@ -165,41 +165,41 @@ public class IgnoreList extends UserList {
 			Client.mouseCrossY = var7;
 			Client.mouseCrossColor = 2;
 			Client.mouseCrossState = 0;
-			Client.destinationX = var0;
-			Client.destinationY = var1;
+			Client.destinationX = slot;
+			Client.destinationY = widgetId;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2732, Client.packetWriter.isaacCipher);
 			var8.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-			var8.packetBuffer.writeLEShortA(var3);
-			var8.packetBuffer.writeLEShortA(class320.baseY + var1);
-			var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShortA(id);
+			var8.packetBuffer.writeLEShortA(class320.baseY + widgetId);
+			var8.packetBuffer.writeLEShort(slot + FloorOverlayDefinition.baseX);
 			Client.packetWriter.addNode(var8);
 		} else if (var2 == 6) {
 			Client.mouseCrossX = var6;
 			Client.mouseCrossY = var7;
 			Client.mouseCrossColor = 2;
 			Client.mouseCrossState = 0;
-			Client.destinationX = var0;
-			Client.destinationY = var1;
+			Client.destinationX = slot;
+			Client.destinationY = widgetId;
 			var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2710, Client.packetWriter.isaacCipher);
-			var8.packetBuffer.writeLEShortA(var0 + FloorOverlayDefinition.baseX);
+			var8.packetBuffer.writeLEShortA(slot + FloorOverlayDefinition.baseX);
 			var8.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-			var8.packetBuffer.writeLEShort(var3);
-			var8.packetBuffer.writeShortA(class320.baseY + var1);
+			var8.packetBuffer.writeLEShort(id);
+			var8.packetBuffer.writeShortA(class320.baseY + widgetId);
 			Client.packetWriter.addNode(var8);
 		} else {
 			PacketBufferNode var9;
 			NPC var13;
 			if (var2 == 7) {
-				var13 = Client.npcs[var3];
+				var13 = Client.npcs[id];
 				if (var13 != null) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2680, Client.packetWriter.isaacCipher);
-					var9.packetBuffer.writeShort(var3);
+					var9.packetBuffer.writeShort(id);
 					var9.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					var9.packetBuffer.writeLEShortA(class92.selectedItemId);
 					var9.packetBuffer.writeInt1(Tiles.selectedItemWidget);
@@ -207,105 +207,105 @@ public class IgnoreList extends UserList {
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 8) {
-				var13 = Client.npcs[var3];
+				var13 = Client.npcs[id];
 				if (var13 != null) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2743, Client.packetWriter.isaacCipher);
 					var9.packetBuffer.writeIntME(WorldMapEvent.selectedSpellWidget);
-					var9.packetBuffer.writeShortA(var3);
-					var9.packetBuffer.writeShortA(Client.field645);
+					var9.packetBuffer.writeShortA(id);
+					var9.packetBuffer.writeShortA(Client.spellItemId);
 					var9.packetBuffer.writeShort(Client.selectedSpellChildIndex);
 					var9.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 9) {
-				var13 = Client.npcs[var3];
+				var13 = Client.npcs[id];
 				if (var13 != null) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2706, Client.packetWriter.isaacCipher);
 					var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var9.packetBuffer.writeLEShort(var3);
+					var9.packetBuffer.writeLEShort(id);
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 10) {
-				var13 = Client.npcs[var3];
+				var13 = Client.npcs[id];
 				if (var13 != null) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2728, Client.packetWriter.isaacCipher);
-					var9.packetBuffer.writeShort(var3);
+					var9.packetBuffer.writeShort(id);
 					var9.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 11) {
-				var13 = Client.npcs[var3];
+				var13 = Client.npcs[id];
 				if (var13 != null) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2660, Client.packetWriter.isaacCipher);
-					var9.packetBuffer.writeLEShort(var3);
+					var9.packetBuffer.writeLEShort(id);
 					var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 12) {
-				var13 = Client.npcs[var3];
+				var13 = Client.npcs[id];
 				if (var13 != null) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2646, Client.packetWriter.isaacCipher);
 					var9.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var9.packetBuffer.writeShort(var3);
+					var9.packetBuffer.writeShort(id);
 					Client.packetWriter.addNode(var9);
 				}
 			} else if (var2 == 13) {
-				var13 = Client.npcs[var3];
+				var13 = Client.npcs[id];
 				if (var13 != null) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2658, Client.packetWriter.isaacCipher);
 					var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var9.packetBuffer.writeShortA(var3);
+					var9.packetBuffer.writeShortA(id);
 					Client.packetWriter.addNode(var9);
 				}
 			} else {
 				Player var15;
 				if (var2 == 14) {
-					var15 = Client.players[var3];
+					var15 = Client.players[id];
 					if (var15 != null) {
 						Client.mouseCrossX = var6;
 						Client.mouseCrossY = var7;
 						Client.mouseCrossColor = 2;
 						Client.mouseCrossState = 0;
-						Client.destinationX = var0;
-						Client.destinationY = var1;
+						Client.destinationX = slot;
+						Client.destinationY = widgetId;
 						var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2693, Client.packetWriter.isaacCipher);
-						var9.packetBuffer.writeLEShort(var3);
+						var9.packetBuffer.writeLEShort(id);
 						var9.packetBuffer.writeShort(DesktopPlatformInfoProvider.selectedItemSlot);
 						var9.packetBuffer.writeShortA(class92.selectedItemId);
 						var9.packetBuffer.writeIntME(Tiles.selectedItemWidget);
@@ -313,20 +313,20 @@ public class IgnoreList extends UserList {
 						Client.packetWriter.addNode(var9);
 					}
 				} else if (var2 == 15) {
-					var15 = Client.players[var3];
+					var15 = Client.players[id];
 					if (var15 != null) {
 						Client.mouseCrossX = var6;
 						Client.mouseCrossY = var7;
 						Client.mouseCrossColor = 2;
 						Client.mouseCrossState = 0;
-						Client.destinationX = var0;
-						Client.destinationY = var1;
+						Client.destinationX = slot;
+						Client.destinationY = widgetId;
 						var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2685, Client.packetWriter.isaacCipher);
-						var9.packetBuffer.writeShort(Client.field645);
+						var9.packetBuffer.writeShort(Client.spellItemId);
 						var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 						var9.packetBuffer.writeInt(WorldMapEvent.selectedSpellWidget);
 						var9.packetBuffer.writeLEShortA(Client.selectedSpellChildIndex);
-						var9.packetBuffer.writeShort(var3);
+						var9.packetBuffer.writeShort(id);
 						Client.packetWriter.addNode(var9);
 					}
 				} else if (var2 == 16) {
@@ -334,14 +334,14 @@ public class IgnoreList extends UserList {
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2640, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeLEShort(class320.baseY + var1);
+					var8.packetBuffer.writeLEShort(class320.baseY + widgetId);
 					var8.packetBuffer.writeInt1(Tiles.selectedItemWidget);
-					var8.packetBuffer.writeLEShortA(var0 + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeLEShortA(slot + FloorOverlayDefinition.baseX);
 					var8.packetBuffer.writeLEShortA(DesktopPlatformInfoProvider.selectedItemSlot);
-					var8.packetBuffer.writeLEShort(var3);
+					var8.packetBuffer.writeLEShort(id);
 					var8.packetBuffer.writeShort(class92.selectedItemId);
 					var8.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var8);
@@ -350,41 +350,41 @@ public class IgnoreList extends UserList {
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2643, Client.packetWriter.isaacCipher);
 					var8.packetBuffer.writeLEShortA(Client.selectedSpellChildIndex);
 					var8.packetBuffer.writeInt(WorldMapEvent.selectedSpellWidget);
-					var8.packetBuffer.writeLEShort(var3);
-					var8.packetBuffer.writeShort(class320.baseY + var1);
-					var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeLEShort(id);
+					var8.packetBuffer.writeShort(class320.baseY + widgetId);
+					var8.packetBuffer.writeLEShort(slot + FloorOverlayDefinition.baseX);
 					var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var8.packetBuffer.writeLEShort(Client.field645);
+					var8.packetBuffer.writeLEShort(Client.spellItemId);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 18) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2724, Client.packetWriter.isaacCipher);
 					var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var8.packetBuffer.writeShortA(class320.baseY + var1);
-					var8.packetBuffer.writeLEShortA(var0 + FloorOverlayDefinition.baseX);
-					var8.packetBuffer.writeShortA(var3);
+					var8.packetBuffer.writeShortA(class320.baseY + widgetId);
+					var8.packetBuffer.writeLEShortA(slot + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeShortA(id);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 19) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2729, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeShortA(var0 + FloorOverlayDefinition.baseX);
-					var8.packetBuffer.writeLEShort(var3);
-					var8.packetBuffer.writeLEShortA(class320.baseY + var1);
+					var8.packetBuffer.writeShortA(slot + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeLEShort(id);
+					var8.packetBuffer.writeLEShortA(class320.baseY + widgetId);
 					var8.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 20) {
@@ -392,51 +392,51 @@ public class IgnoreList extends UserList {
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2659, Client.packetWriter.isaacCipher);
 					var8.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var8.packetBuffer.writeShortA(class320.baseY + var1);
-					var8.packetBuffer.writeShortA(var3);
-					var8.packetBuffer.writeShort(var0 + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeShortA(class320.baseY + widgetId);
+					var8.packetBuffer.writeShortA(id);
+					var8.packetBuffer.writeShort(slot + FloorOverlayDefinition.baseX);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 21) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2702, Client.packetWriter.isaacCipher);
 					var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
-					var8.packetBuffer.writeShortA(var3);
-					var8.packetBuffer.writeShortA(class320.baseY + var1);
+					var8.packetBuffer.writeLEShort(slot + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeShortA(id);
+					var8.packetBuffer.writeShortA(class320.baseY + widgetId);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 22) {
 					Client.mouseCrossX = var6;
 					Client.mouseCrossY = var7;
 					Client.mouseCrossColor = 2;
 					Client.mouseCrossState = 0;
-					Client.destinationX = var0;
-					Client.destinationY = var1;
+					Client.destinationX = slot;
+					Client.destinationY = widgetId;
 					var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2740, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeLEShort(var3);
-					var8.packetBuffer.writeShortA(var0 + FloorOverlayDefinition.baseX);
+					var8.packetBuffer.writeLEShort(id);
+					var8.packetBuffer.writeShortA(slot + FloorOverlayDefinition.baseX);
 					var8.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-					var8.packetBuffer.writeLEShort(class320.baseY + var1);
+					var8.packetBuffer.writeLEShort(class320.baseY + widgetId);
 					Client.packetWriter.addNode(var8);
 				} else if (var2 == 23) {
 					if (Client.isMenuOpen) {
 						CollisionMap.scene.setViewportWalking();
 					} else {
-						CollisionMap.scene.menuOpen(class391.Client_plane, var0, var1, true);
+						CollisionMap.scene.menuOpen(class391.Client_plane, slot, widgetId, true);
 					}
 				} else {
 					PacketBufferNode var10;
 					Widget var16;
 					if (var2 == 24) {
-						var16 = class87.getWidget(var1);
+						var16 = class87.getWidget(widgetId);
 						boolean var11 = true;
 						if (var16.contentType > 0) {
 							var11 = class119.method2508(var16);
@@ -444,15 +444,15 @@ public class IgnoreList extends UserList {
 
 						if (var11) {
 							var10 = FriendSystem.getPacketBufferNode(ClientPacket.field2662, Client.packetWriter.isaacCipher);
-							var10.packetBuffer.writeInt(var1);
+							var10.packetBuffer.writeInt(widgetId);
 							Client.packetWriter.addNode(var10);
 						}
 					} else {
 						if (var2 == 25) {
-							var16 = ParamComposition.getWidgetChild(var1, var0);
+							var16 = ParamComposition.getWidgetChild(widgetId, slot);
 							if (var16 != null) {
 								ReflectionCheck.Widget_runOnTargetLeave();
-								DirectByteArrayCopier.selectSpell(var1, var0, class138.Widget_unpackTargetMask(Decimator.getWidgetFlags(var16)), var16.itemId);
+								DirectByteArrayCopier.selectSpell(widgetId, slot, class138.Widget_unpackTargetMask(Decimator.getWidgetFlags(var16)), var16.itemId);
 								Client.isItemSelected = 0;
 								Client.selectedSpellActionName = FileSystem.Widget_getSpellActionName(var16);
 								if (Client.selectedSpellActionName == null) {
@@ -476,9 +476,9 @@ public class IgnoreList extends UserList {
 							Widget var14;
 							if (var2 == 28) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2662, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.writeInt(var1);
+								var8.packetBuffer.writeInt(widgetId);
 								Client.packetWriter.addNode(var8);
-								var14 = class87.getWidget(var1);
+								var14 = class87.getWidget(widgetId);
 								if (var14.cs1Instructions != null && var14.cs1Instructions[0][0] == 5) {
 									var12 = var14.cs1Instructions[0][1];
 									Varps.Varps_main[var12] = 1 - Varps.Varps_main[var12];
@@ -486,9 +486,9 @@ public class IgnoreList extends UserList {
 								}
 							} else if (var2 == 29) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2662, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.writeInt(var1);
+								var8.packetBuffer.writeInt(widgetId);
 								Client.packetWriter.addNode(var8);
-								var14 = class87.getWidget(var1);
+								var14 = class87.getWidget(widgetId);
 								if (var14.cs1Instructions != null && var14.cs1Instructions[0][0] == 5) {
 									var12 = var14.cs1Instructions[0][1];
 									if (Varps.Varps_main[var12] != var14.cs1ComparisonValues[0]) {
@@ -498,88 +498,88 @@ public class IgnoreList extends UserList {
 								}
 							} else if (var2 == 30) {
 								if (Client.meslayerContinueWidget == null) {
-									DevicePcmPlayerProvider.resumePauseWidget(var1, var0);
-									Client.meslayerContinueWidget = ParamComposition.getWidgetChild(var1, var0);
+									DevicePcmPlayerProvider.resumePauseWidget(widgetId, slot);
+									Client.meslayerContinueWidget = ParamComposition.getWidgetChild(widgetId, slot);
 									Actor.invalidateWidget(Client.meslayerContinueWidget);
 								}
 							} else if (var2 == 31) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2652, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.writeLEShort(var0);
-								var8.packetBuffer.writeLEInt(var1);
+								var8.packetBuffer.writeLEShort(slot);
+								var8.packetBuffer.writeLEInt(widgetId);
 								var8.packetBuffer.writeLEShort(class92.selectedItemId);
 								var8.packetBuffer.writeInt(Tiles.selectedItemWidget);
 								var8.packetBuffer.writeShortA(DesktopPlatformInfoProvider.selectedItemSlot);
-								var8.packetBuffer.writeLEShortA(var3);
+								var8.packetBuffer.writeLEShortA(id);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
-								FriendsChat.field3934 = class87.getWidget(var1);
-								Client.field593 = var0;
+								FriendsChat.field3934 = class87.getWidget(widgetId);
+								Client.field593 = slot;
 							} else if (var2 == 32) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2745, Client.packetWriter.isaacCipher);
 								var8.packetBuffer.writeIntME(WorldMapEvent.selectedSpellWidget);
 								var8.packetBuffer.writeShort(Client.selectedSpellChildIndex);
-								var8.packetBuffer.writeInt(var1);
-								var8.packetBuffer.writeLEShortA(var3);
-								var8.packetBuffer.writeLEShort(var0);
+								var8.packetBuffer.writeInt(widgetId);
+								var8.packetBuffer.writeLEShortA(id);
+								var8.packetBuffer.writeLEShort(slot);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
-								FriendsChat.field3934 = class87.getWidget(var1);
-								Client.field593 = var0;
+								FriendsChat.field3934 = class87.getWidget(widgetId);
+								Client.field593 = slot;
 							} else if (var2 == 33) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2708, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.writeIntME(var1);
-								var8.packetBuffer.writeShort(var3);
-								var8.packetBuffer.writeLEShortA(var0);
+								var8.packetBuffer.writeIntME(widgetId);
+								var8.packetBuffer.writeShort(id);
+								var8.packetBuffer.writeLEShortA(slot);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
-								FriendsChat.field3934 = class87.getWidget(var1);
-								Client.field593 = var0;
+								FriendsChat.field3934 = class87.getWidget(widgetId);
+								Client.field593 = slot;
 							} else if (var2 == 34) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2694, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.writeShortA(var0);
-								var8.packetBuffer.writeShort(var3);
-								var8.packetBuffer.writeInt(var1);
+								var8.packetBuffer.writeShortA(slot);
+								var8.packetBuffer.writeShort(id);
+								var8.packetBuffer.writeInt(widgetId);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
-								FriendsChat.field3934 = class87.getWidget(var1);
-								Client.field593 = var0;
+								FriendsChat.field3934 = class87.getWidget(widgetId);
+								Client.field593 = slot;
 							} else if (var2 == 35) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2718, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.writeLEShortA(var0);
-								var8.packetBuffer.writeIntME(var1);
-								var8.packetBuffer.writeShort(var3);
+								var8.packetBuffer.writeLEShortA(slot);
+								var8.packetBuffer.writeIntME(widgetId);
+								var8.packetBuffer.writeShort(id);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
-								FriendsChat.field3934 = class87.getWidget(var1);
-								Client.field593 = var0;
+								FriendsChat.field3934 = class87.getWidget(widgetId);
+								Client.field593 = slot;
 							} else if (var2 == 36) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2681, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.writeShort(var0);
-								var8.packetBuffer.writeLEShortA(var3);
-								var8.packetBuffer.writeInt1(var1);
+								var8.packetBuffer.writeShort(slot);
+								var8.packetBuffer.writeLEShortA(id);
+								var8.packetBuffer.writeInt1(widgetId);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
-								FriendsChat.field3934 = class87.getWidget(var1);
-								Client.field593 = var0;
+								FriendsChat.field3934 = class87.getWidget(widgetId);
+								Client.field593 = slot;
 							} else if (var2 == 37) {
 								var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2642, Client.packetWriter.isaacCipher);
-								var8.packetBuffer.writeShort(var3);
-								var8.packetBuffer.writeInt1(var1);
-								var8.packetBuffer.writeLEShortA(var0);
+								var8.packetBuffer.writeShort(id);
+								var8.packetBuffer.writeInt1(widgetId);
+								var8.packetBuffer.writeLEShortA(slot);
 								Client.packetWriter.addNode(var8);
 								Client.field727 = 0;
-								FriendsChat.field3934 = class87.getWidget(var1);
-								Client.field593 = var0;
+								FriendsChat.field3934 = class87.getWidget(widgetId);
+								Client.field593 = slot;
 							} else {
 								if (var2 == 38) {
 									ReflectionCheck.Widget_runOnTargetLeave();
-									var16 = class87.getWidget(var1);
+									var16 = class87.getWidget(widgetId);
 									Client.isItemSelected = 1;
-									DesktopPlatformInfoProvider.selectedItemSlot = var0;
-									Tiles.selectedItemWidget = var1;
-									class92.selectedItemId = var3;
+									DesktopPlatformInfoProvider.selectedItemSlot = slot;
+									Tiles.selectedItemWidget = widgetId;
+									class92.selectedItemId = id;
 									Actor.invalidateWidget(var16);
-									Client.selectedItemName = class54.colorStartTag(16748608) + class65.ItemDefinition_get(var3).name + class54.colorStartTag(16777215);
+									Client.selectedItemName = class54.colorStartTag(16748608) + class65.ItemDefinition_get(id).name + class54.colorStartTag(16777215);
 									if (Client.selectedItemName == null) {
 										Client.selectedItemName = "null";
 									}
@@ -589,172 +589,172 @@ public class IgnoreList extends UserList {
 
 								if (var2 == 39) {
 									var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2682, Client.packetWriter.isaacCipher);
-									var8.packetBuffer.writeInt(var1);
-									var8.packetBuffer.writeLEShortA(var0);
-									var8.packetBuffer.writeShort(var3);
+									var8.packetBuffer.writeInt(widgetId);
+									var8.packetBuffer.writeLEShortA(slot);
+									var8.packetBuffer.writeShort(id);
 									Client.packetWriter.addNode(var8);
 									Client.field727 = 0;
-									FriendsChat.field3934 = class87.getWidget(var1);
-									Client.field593 = var0;
+									FriendsChat.field3934 = class87.getWidget(widgetId);
+									Client.field593 = slot;
 								} else if (var2 == 40) {
 									var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2663, Client.packetWriter.isaacCipher);
-									var8.packetBuffer.writeLEShort(var3);
-									var8.packetBuffer.writeInt(var1);
-									var8.packetBuffer.writeLEShortA(var0);
+									var8.packetBuffer.writeLEShort(id);
+									var8.packetBuffer.writeInt(widgetId);
+									var8.packetBuffer.writeLEShortA(slot);
 									Client.packetWriter.addNode(var8);
 									Client.field727 = 0;
-									FriendsChat.field3934 = class87.getWidget(var1);
-									Client.field593 = var0;
+									FriendsChat.field3934 = class87.getWidget(widgetId);
+									Client.field593 = slot;
 								} else if (var2 == 41) {
 									var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2734, Client.packetWriter.isaacCipher);
-									var8.packetBuffer.writeShort(var3);
-									var8.packetBuffer.writeShort(var0);
-									var8.packetBuffer.writeInt1(var1);
+									var8.packetBuffer.writeShort(id);
+									var8.packetBuffer.writeShort(slot);
+									var8.packetBuffer.writeInt1(widgetId);
 									Client.packetWriter.addNode(var8);
 									Client.field727 = 0;
-									FriendsChat.field3934 = class87.getWidget(var1);
-									Client.field593 = var0;
+									FriendsChat.field3934 = class87.getWidget(widgetId);
+									Client.field593 = slot;
 								} else if (var2 == 42) {
 									var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2705, Client.packetWriter.isaacCipher);
-									var8.packetBuffer.writeShortA(var0);
-									var8.packetBuffer.writeShort(var3);
-									var8.packetBuffer.writeIntME(var1);
+									var8.packetBuffer.writeShortA(slot);
+									var8.packetBuffer.writeShort(id);
+									var8.packetBuffer.writeIntME(widgetId);
 									Client.packetWriter.addNode(var8);
 									Client.field727 = 0;
-									FriendsChat.field3934 = class87.getWidget(var1);
-									Client.field593 = var0;
+									FriendsChat.field3934 = class87.getWidget(widgetId);
+									Client.field593 = slot;
 								} else if (var2 == 43) {
 									var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2674, Client.packetWriter.isaacCipher);
-									var8.packetBuffer.writeShortA(var3);
-									var8.packetBuffer.writeLEInt(var1);
-									var8.packetBuffer.writeShortA(var0);
+									var8.packetBuffer.writeShortA(id);
+									var8.packetBuffer.writeLEInt(widgetId);
+									var8.packetBuffer.writeShortA(slot);
 									Client.packetWriter.addNode(var8);
 									Client.field727 = 0;
-									FriendsChat.field3934 = class87.getWidget(var1);
-									Client.field593 = var0;
+									FriendsChat.field3934 = class87.getWidget(widgetId);
+									Client.field593 = slot;
 								} else if (var2 == 44) {
-									var15 = Client.players[var3];
+									var15 = Client.players[id];
 									if (var15 != null) {
 										Client.mouseCrossX = var6;
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										Client.destinationX = var0;
-										Client.destinationY = var1;
+										Client.destinationX = slot;
+										Client.destinationY = widgetId;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2670, Client.packetWriter.isaacCipher);
 										var9.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-										var9.packetBuffer.writeShortA(var3);
+										var9.packetBuffer.writeShortA(id);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 45) {
-									var15 = Client.players[var3];
+									var15 = Client.players[id];
 									if (var15 != null) {
 										Client.mouseCrossX = var6;
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										Client.destinationX = var0;
-										Client.destinationY = var1;
+										Client.destinationX = slot;
+										Client.destinationY = widgetId;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2741, Client.packetWriter.isaacCipher);
 										var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-										var9.packetBuffer.writeLEShort(var3);
+										var9.packetBuffer.writeLEShort(id);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 46) {
-									var15 = Client.players[var3];
+									var15 = Client.players[id];
 									if (var15 != null) {
 										Client.mouseCrossX = var6;
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										Client.destinationX = var0;
-										Client.destinationY = var1;
+										Client.destinationX = slot;
+										Client.destinationY = widgetId;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2651, Client.packetWriter.isaacCipher);
 										var9.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-										var9.packetBuffer.writeShortA(var3);
+										var9.packetBuffer.writeShortA(id);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 47) {
-									var15 = Client.players[var3];
+									var15 = Client.players[id];
 									if (var15 != null) {
 										Client.mouseCrossX = var6;
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										Client.destinationX = var0;
-										Client.destinationY = var1;
+										Client.destinationX = slot;
+										Client.destinationY = widgetId;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2715, Client.packetWriter.isaacCipher);
-										var9.packetBuffer.writeShortA(var3);
+										var9.packetBuffer.writeShortA(id);
 										var9.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 48) {
-									var15 = Client.players[var3];
+									var15 = Client.players[id];
 									if (var15 != null) {
 										Client.mouseCrossX = var6;
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										Client.destinationX = var0;
-										Client.destinationY = var1;
+										Client.destinationX = slot;
+										Client.destinationY = widgetId;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2648, Client.packetWriter.isaacCipher);
-										var9.packetBuffer.writeShort(var3);
+										var9.packetBuffer.writeShort(id);
 										var9.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 49) {
-									var15 = Client.players[var3];
+									var15 = Client.players[id];
 									if (var15 != null) {
 										Client.mouseCrossX = var6;
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										Client.destinationX = var0;
-										Client.destinationY = var1;
+										Client.destinationX = slot;
+										Client.destinationY = widgetId;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2657, Client.packetWriter.isaacCipher);
-										var9.packetBuffer.writeShort(var3);
+										var9.packetBuffer.writeShort(id);
 										var9.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 50) {
-									var15 = Client.players[var3];
+									var15 = Client.players[id];
 									if (var15 != null) {
 										Client.mouseCrossX = var6;
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										Client.destinationX = var0;
-										Client.destinationY = var1;
+										Client.destinationX = slot;
+										Client.destinationY = widgetId;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2676, Client.packetWriter.isaacCipher);
-										var9.packetBuffer.writeLEShort(var3);
+										var9.packetBuffer.writeLEShort(id);
 										var9.packetBuffer.writeByteC(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 == 51) {
-									var15 = Client.players[var3];
+									var15 = Client.players[id];
 									if (var15 != null) {
 										Client.mouseCrossX = var6;
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										Client.destinationX = var0;
-										Client.destinationY = var1;
+										Client.destinationX = slot;
+										Client.destinationY = widgetId;
 										var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2713, Client.packetWriter.isaacCipher);
 										var9.packetBuffer.writeByteS(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
-										var9.packetBuffer.writeLEShort(var3);
+										var9.packetBuffer.writeLEShort(id);
 										Client.packetWriter.addNode(var9);
 									}
 								} else if (var2 != 57 && var2 != 1007) {
 									if (var2 == 58) {
-										var16 = ParamComposition.getWidgetChild(var1, var0);
+										var16 = ParamComposition.getWidgetChild(widgetId, slot);
 										if (var16 != null) {
 											var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2655, Client.packetWriter.isaacCipher);
 											var9.packetBuffer.writeLEShort(var16.itemId);
 											var9.packetBuffer.writeInt(WorldMapEvent.selectedSpellWidget);
 											var9.packetBuffer.writeLEShort(Client.selectedSpellChildIndex);
-											var9.packetBuffer.writeLEInt(var1);
-											var9.packetBuffer.writeShort(var0);
-											var9.packetBuffer.writeLEShort(Client.field645);
+											var9.packetBuffer.writeLEInt(widgetId);
+											var9.packetBuffer.writeShort(slot);
+											var9.packetBuffer.writeLEShort(Client.spellItemId);
 											Client.packetWriter.addNode(var9);
 										}
 									} else if (var2 == 1001) {
@@ -762,12 +762,12 @@ public class IgnoreList extends UserList {
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										Client.destinationX = var0;
-										Client.destinationY = var1;
+										Client.destinationX = slot;
+										Client.destinationY = widgetId;
 										var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2649, Client.packetWriter.isaacCipher);
-										var8.packetBuffer.writeLEShort(var0 + FloorOverlayDefinition.baseX);
-										var8.packetBuffer.writeShortA(class320.baseY + var1);
-										var8.packetBuffer.writeShort(var3);
+										var8.packetBuffer.writeLEShort(slot + FloorOverlayDefinition.baseX);
+										var8.packetBuffer.writeShortA(class320.baseY + widgetId);
+										var8.packetBuffer.writeShort(id);
 										var8.packetBuffer.writeByte(KeyHandler.KeyHandler_pressedKeys[82] ? 1 : 0);
 										Client.packetWriter.addNode(var8);
 									} else if (var2 == 1002) {
@@ -776,14 +776,14 @@ public class IgnoreList extends UserList {
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
 										var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2746, Client.packetWriter.isaacCipher);
-										var8.packetBuffer.writeShortA(var3);
+										var8.packetBuffer.writeShortA(id);
 										Client.packetWriter.addNode(var8);
 									} else if (var2 == 1003) {
 										Client.mouseCrossX = var6;
 										Client.mouseCrossY = var7;
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
-										var13 = Client.npcs[var3];
+										var13 = Client.npcs[id];
 										if (var13 != null) {
 											NPCComposition var17 = var13.definition;
 											if (var17.transforms != null) {
@@ -802,28 +802,28 @@ public class IgnoreList extends UserList {
 										Client.mouseCrossColor = 2;
 										Client.mouseCrossState = 0;
 										var8 = FriendSystem.getPacketBufferNode(ClientPacket.field2712, Client.packetWriter.isaacCipher);
-										var8.packetBuffer.writeShortA(var3);
+										var8.packetBuffer.writeShortA(id);
 										Client.packetWriter.addNode(var8);
 									} else if (var2 == 1005) {
-										var16 = class87.getWidget(var1);
-										if (var16 != null && var16.itemQuantities[var0] >= 100000) {
-											SecureRandomCallable.addGameMessage(27, "", var16.itemQuantities[var0] + " x " + class65.ItemDefinition_get(var3).name);
+										var16 = class87.getWidget(widgetId);
+										if (var16 != null && var16.itemQuantities[slot] >= 100000) {
+											SecureRandomCallable.addGameMessage(27, "", var16.itemQuantities[slot] + " x " + class65.ItemDefinition_get(id).name);
 										} else {
 											var9 = FriendSystem.getPacketBufferNode(ClientPacket.field2712, Client.packetWriter.isaacCipher);
-											var9.packetBuffer.writeShortA(var3);
+											var9.packetBuffer.writeShortA(id);
 											Client.packetWriter.addNode(var9);
 										}
 
 										Client.field727 = 0;
-										FriendsChat.field3934 = class87.getWidget(var1);
-										Client.field593 = var0;
+										FriendsChat.field3934 = class87.getWidget(widgetId);
+										Client.field593 = slot;
 									} else if (var2 == 1010 || var2 == 1011 || var2 == 1008 || var2 == 1009 || var2 == 1012) {
-										class65.worldMap.worldMapMenuAction(var2, var3, new Coord(var0), new Coord(var1));
+										class65.worldMap.worldMapMenuAction(var2, id, new Coord(slot), new Coord(widgetId));
 									}
 								} else {
-									var16 = ParamComposition.getWidgetChild(var1, var0);
+									var16 = ParamComposition.getWidgetChild(widgetId, slot);
 									if (var16 != null) {
-										MouseHandler.widgetDefaultMenuAction(var3, var1, var0, var16.itemId, var5);
+										MouseHandler.widgetDefaultMenuAction(id, widgetId, slot, var16.itemId, var5);
 									}
 								}
 							}

@@ -1,9 +1,6 @@
+import net.runelite.mapping.*;
+
 import java.nio.ByteBuffer;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("jm")
 @Implements("DirectByteArrayCopier")
@@ -55,7 +52,7 @@ public class DirectByteArrayCopier extends AbstractByteArrayCopier {
 		garbageValue = "641314973"
 	)
 	@Export("selectSpell")
-	static void selectSpell(int var0, int var1, int var2, int var3) {
+	static void selectSpell(int var0, int var1, int var2, int spellItemId) {
 		Widget var4 = ParamComposition.getWidgetChild(var0, var1);
 		if (var4 != null && var4.onTargetEnter != null) {
 			ScriptEvent var5 = new ScriptEvent();
@@ -64,7 +61,7 @@ public class DirectByteArrayCopier extends AbstractByteArrayCopier {
 			class139.runScriptEvent(var5);
 		}
 
-		Client.field645 = var3;
+		Client.spellItemId = spellItemId;
 		Client.isSpellSelected = true;
 		WorldMapEvent.selectedSpellWidget = var0;
 		Client.selectedSpellChildIndex = var1;

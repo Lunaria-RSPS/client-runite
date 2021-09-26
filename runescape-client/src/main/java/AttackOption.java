@@ -187,7 +187,7 @@ public enum AttackOption implements MouseWheel {
 			int var2 = Client.field533[var1];
 			NPC var3 = Client.npcs[var2];
 			int var4 = var0.readUnsignedByte();
-			System.out.println(var3.definition.name + " maskData=" + var4 + " ("+ Integer.toBinaryString(var4) + ")");
+			System.out.println("NPC " + var3.definition.name + " maskData=" + var4 + " ("+ Integer.toBinaryString(var4) + ")");
 			if ((var4 & 64) != 0) {
 				var3.definition = ScriptEvent.getNpcDefinition(var0.readLEShort());
 				var3.field1137 = var3.definition.size;
@@ -320,10 +320,12 @@ public enum AttackOption implements MouseWheel {
 					for (var7 = 0; var7 < var6; ++var7) {
 						var8 = var0.readUShortSmart();
 						var9 = var0.readUShortSmart();
+						System.out.println(var8+","+var9 + " breh");
 						if (var9 != 32767) {
 							var10 = var0.readUShortSmart();
 							var11 = var0.readUnsignedByteC();
 							int var12 = var9 > 0 ? var0.readUnsignedByteA() : var11;
+							System.out.println("jaja " + var10+","+var11+","+var12);
 							var3.addHealthBar(var8, Client.cycle, var9, var10, var11, var12);
 						} else {
 							var3.removeHealthBar(var8);

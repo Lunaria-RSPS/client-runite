@@ -1,14 +1,7 @@
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import net.runelite.mapping.*;
+
+import java.awt.event.*;
 import java.util.Arrays;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("as")
 @Implements("MouseHandler")
@@ -393,8 +386,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
 		garbageValue = "-31"
 	)
 	@Export("widgetDefaultMenuAction")
-	static void widgetDefaultMenuAction(int var0, int var1, int var2, int var3, String var4) {
-		Widget var5 = ParamComposition.getWidgetChild(var1, var2);
+	static void widgetDefaultMenuAction(int var0, int interfaceHash, int slot, int itemId, String var4) {
+		Widget var5 = ParamComposition.getWidgetChild(interfaceHash, slot);
 		if (var5 != null) {
 			if (var5.onOp != null) {
 				ScriptEvent var6 = new ScriptEvent();
@@ -415,81 +408,81 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
 					PacketBufferNode var7;
 					if (var0 == 1) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2679, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
 					if (var0 == 2) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2735, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
 					if (var0 == 3) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2736, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
 					if (var0 == 4) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2650, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
 					if (var0 == 5) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2738, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
 					if (var0 == 6) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2668, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
 					if (var0 == 7) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2691, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
 					if (var0 == 8) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2733, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
 					if (var0 == 9) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2644, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
 					if (var0 == 10) {
 						var7 = FriendSystem.getPacketBufferNode(ClientPacket.field2671, Client.packetWriter.isaacCipher);
-						var7.packetBuffer.writeInt(var1);
-						var7.packetBuffer.writeShort(var2);
-						var7.packetBuffer.writeShort(var3);
+						var7.packetBuffer.writeInt(interfaceHash);
+						var7.packetBuffer.writeShort(slot);
+						var7.packetBuffer.writeShort(itemId);
 						Client.packetWriter.addNode(var7);
 					}
 
