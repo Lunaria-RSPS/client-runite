@@ -947,7 +947,7 @@ public class Buffer extends Node {
 		descriptor = "(I)I",
 		garbageValue = "-1573748638"
 	)
-	public int method6856() {
+	public int readUnsignedLEShort() {
 		this.offset += 2;
 		int var1 = ((this.array[this.offset - 1] & 255) << 8) + (this.array[this.offset - 2] & 255);
 		if (var1 > 32767) {

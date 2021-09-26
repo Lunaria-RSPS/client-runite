@@ -296,7 +296,7 @@ public class ScriptFrame {
 			byte var37;
 			if (class240.field2758 == var0) {
 				var37 = var1.readByte();
-				var3 = var1.method6856();
+				var3 = var1.readUnsignedLEShort();
 				var4 = var1.readUnsignedByteA();
 				var5 = var1.readUnsignedByte();
 				var6 = (var5 >> 4 & 7) + JagexCache.field1559;

@@ -4245,7 +4245,6 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 																var44.packetBuffer.writeByteA(KeyHandler.KeyHandler_pressedKeys[82] ? (KeyHandler.KeyHandler_pressedKeys[81] ? 2 : 1) : 0);
 																var44.packetBuffer.writeLEShort(var3 + FloorOverlayDefinition.baseX);
 																var44.packetBuffer.writeLEShortA(var4 + class320.baseY);
-																System.out.println("yooo " + var44.clientPacketLength + ", " + var44.packetBuffer.offset + ", " + var44.packetBuffer.array.length);
 																packetWriter.addNode(var44);
 																Scene.method4193();
 																mouseCrossX = MouseHandler.MouseHandler_lastPressedX;
