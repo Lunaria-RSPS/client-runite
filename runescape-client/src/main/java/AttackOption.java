@@ -183,11 +183,11 @@ public enum AttackOption implements MouseWheel {
 		garbageValue = "28"
 	)
 	static final void method2255(PacketBuffer var0) {
-		for (int var1 = 0; var1 < Client.field560; ++var1) {
-			int var2 = Client.field533[var1];
+		for (int var1 = 0; var1 < Client.npcMaskUpdateIndex; ++var1) {
+			int var2 = Client.npcMaskUpdates[var1];
 			NPC var3 = Client.npcs[var2];
 			int var4 = var0.readUnsignedByte();
-			System.out.println("NPC " + var3.definition.name + " maskData=" + var4 + " ("+ Integer.toBinaryString(var4) + ")");
+			//System.out.println("NPC " + var3.definition.name + " maskData=" + var4 + " ("+ Integer.toBinaryString(var4) + ")");
 			if ((var4 & 64) != 0) {
 				var3.definition = ScriptEvent.getNpcDefinition(var0.readLEShort());
 				var3.field1137 = var3.definition.size;

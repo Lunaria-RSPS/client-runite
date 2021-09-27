@@ -586,9 +586,9 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 	@ObfuscatedGetter(
 		intValue = 853284993
 	)
-	static int field560;
+	static int npcMaskUpdateIndex;
 	@ObfuscatedName("gn")
-	static int[] field533;
+	static int[] npcMaskUpdates;
 	@ObfuscatedName("gy")
 	@ObfuscatedSignature(
 		descriptor = "Lcs;"
@@ -1374,8 +1374,8 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 		npcs = new NPC[32768];
 		npcCount = 0;
 		npcIndices = new int[32768];
-		field560 = 0;
-		field533 = new int[250];
+		npcMaskUpdateIndex = 0;
+		npcMaskUpdates = new int[250];
 		packetWriter = new PacketWriter();
 		logoutTimer = 0;
 		hadNetworkError = false;

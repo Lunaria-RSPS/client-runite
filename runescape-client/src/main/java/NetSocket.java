@@ -436,7 +436,7 @@ public final class NetSocket extends AbstractSocket implements Runnable {
 							if ((var6 & 4) != 0) {
 								var6 += var0.readUnsignedByte() << 8;
 							}
-							System.out.println("Player " + var5.username + " maskData="+var6+"("+Integer.toBinaryString(var6)+")");
+							//System.out.println("Player " + var5.username + " maskData="+var6+"("+Integer.toBinaryString(var6)+")");
 
 							byte var7 = -1;
 							if ((var6 & 512) != 0) {

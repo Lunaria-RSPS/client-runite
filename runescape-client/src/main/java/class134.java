@@ -135,7 +135,7 @@ public class class134 extends class116 {
 	@Export("updateNpcs")
 	static final void updateNpcs(boolean var0, PacketBuffer var1) {
 		Client.field495 = 0;
-		Client.field560 = 0;
+		Client.npcMaskUpdateIndex = 0;
 		GameObject.method4496();
 		Huffman.method5011(var0, var1);
 		AttackOption.method2255(var1);

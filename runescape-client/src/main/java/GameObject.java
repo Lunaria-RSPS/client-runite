@@ -1,8 +1,4 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.mapping.*;
 
 @ObfuscatedName("hj")
 @Implements("GameObject")
@@ -119,57 +115,59 @@ public final class GameObject {
 	static final void method4496() {
 		PacketBuffer var0 = Client.packetWriter.packetBuffer;
 		var0.importIndex();
-		int var1 = var0.readBits(8);
-		int var2;
-		if (var1 < Client.npcCount) {
-			for (var2 = var1; var2 < Client.npcCount; ++var2) {
-				Client.field610[++Client.field495 - 1] = Client.npcIndices[var2];
+		int npcCount = var0.readBits(8);
+		int localNPCIndex;
+		if (npcCount < Client.npcCount) {
+			for (localNPCIndex = npcCount; localNPCIndex < Client.npcCount; ++localNPCIndex) {
+				Client.field610[++Client.field495 - 1] = Client.npcIndices[localNPCIndex];
 			}
 		}
+		
+		//System.out.println("npcCount: " + npcCount + " vs " + Client.npcCount + " (prev)");
 
-		if (var1 > Client.npcCount) {
+		if (npcCount > Client.npcCount) {
 			throw new RuntimeException("");
 		} else {
 			Client.npcCount = 0;
 
-			for (var2 = 0; var2 < var1; ++var2) {
-				int var3 = Client.npcIndices[var2];
-				NPC var4 = Client.npcs[var3];
+			for (localNPCIndex = 0; localNPCIndex < npcCount; ++localNPCIndex) {
+				int npcIndex = Client.npcIndices[localNPCIndex];
+				NPC npc = Client.npcs[npcIndex];
 				int var5 = var0.readBits(1);
 				if (var5 == 0) {
-					Client.npcIndices[++Client.npcCount - 1] = var3;
-					var4.npcCycle = Client.cycle;
+					Client.npcIndices[++Client.npcCount - 1] = npcIndex;
+					npc.npcCycle = Client.cycle;
 				} else {
 					int var6 = var0.readBits(2);
 					if (var6 == 0) {
-						Client.npcIndices[++Client.npcCount - 1] = var3;
-						var4.npcCycle = Client.cycle;
-						Client.field533[++Client.field560 - 1] = var3;
+						Client.npcIndices[++Client.npcCount - 1] = npcIndex;
+						npc.npcCycle = Client.cycle;
+						Client.npcMaskUpdates[++Client.npcMaskUpdateIndex - 1] = npcIndex;
 					} else {
 						int var7;
 						int var8;
 						if (var6 == 1) {
-							Client.npcIndices[++Client.npcCount - 1] = var3;
-							var4.npcCycle = Client.cycle;
+							Client.npcIndices[++Client.npcCount - 1] = npcIndex;
+							npc.npcCycle = Client.cycle;
 							var7 = var0.readBits(3);
-							var4.method2212(var7, (byte)1);
+							npc.method2212(var7, (byte)1);
 							var8 = var0.readBits(1);
 							if (var8 == 1) {
-								Client.field533[++Client.field560 - 1] = var3;
+								Client.npcMaskUpdates[++Client.npcMaskUpdateIndex - 1] = npcIndex;
 							}
 						} else if (var6 == 2) {
-							Client.npcIndices[++Client.npcCount - 1] = var3;
-							var4.npcCycle = Client.cycle;
+							Client.npcIndices[++Client.npcCount - 1] = npcIndex;
+							npc.npcCycle = Client.cycle;
 							var7 = var0.readBits(3);
-							var4.method2212(var7, (byte)2);
+							npc.method2212(var7, (byte)2);
 							var8 = var0.readBits(3);
-							var4.method2212(var8, (byte)2);
-							int var9 = var0.readBits(1);
-							if (var9 == 1) {
-								Client.field533[++Client.field560 - 1] = var3;
+							npc.method2212(var8, (byte)2);
+							int hasMasks = var0.readBits(1);
+							if (hasMasks == 1) {
+								Client.npcMaskUpdates[++Client.npcMaskUpdateIndex - 1] = npcIndex;
 							}
 						} else if (var6 == 3) {
-							Client.field610[++Client.field495 - 1] = var3;
+							Client.field610[++Client.field495 - 1] = npcIndex;
 						}
 					}
 				}

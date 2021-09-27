@@ -1,8 +1,9 @@
-import java.io.IOException;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.io.IOException;
 
 @ObfuscatedName("cr")
 @Implements("NPC")
@@ -121,12 +122,12 @@ public final class NPC extends Actor {
 		descriptor = "(IIZI)V",
 		garbageValue = "866261786"
 	)
-	final void method2224(int var1, int var2, boolean var3) {
+	final void method2224(int var1, int var2, boolean hasTeleportUpdate) {
 		if (super.sequence != -1 && class17.SequenceDefinition_get(super.sequence).field1960 == 1) {
 			super.sequence = -1;
 		}
 
-		if (!var3) {
+		if (!hasTeleportUpdate) {
 			int var4 = var1 - super.pathX[0];
 			int var5 = var2 - super.pathY[0];
 			if (var4 >= -8 && var4 <= 8 && var5 >= -8 && var5 <= 8) {

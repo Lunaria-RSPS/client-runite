@@ -311,82 +311,85 @@ public class Huffman {
 		descriptor = "(ZLoq;I)V",
 		garbageValue = "-1535090949"
 	)
-	static final void method5011(boolean var0, PacketBuffer var1) {
+	static final void method5011(boolean largeView, PacketBuffer buf) {
+		if (largeView) {
+			throw new RuntimeException("WTF BRO?? " + buf);
+		}
 		while (true) {
-			if (var1.bitsRemaining(Client.packetWriter.serverPacketLength) >= 27) {
-				int var2 = var1.readBits(15);
-				if (var2 != 32767) {
-					boolean var3 = false;
-					if (Client.npcs[var2] == null) {
-						Client.npcs[var2] = new NPC();
-						var3 = true;
+			if (buf.bitsRemaining(Client.packetWriter.serverPacketLength) >= 27) {
+				int npcIndex = buf.readBits(15);
+				if (npcIndex != 32767) {
+					boolean isNewlySpawned = false;
+					if (Client.npcs[npcIndex] == null) {
+						Client.npcs[npcIndex] = new NPC();
+						isNewlySpawned = true;
 					}
 
-					NPC var4 = Client.npcs[var2];
-					Client.npcIndices[++Client.npcCount - 1] = var2;
-					var4.npcCycle = Client.cycle;
-					int var6;
-					if (var0) {
-						var6 = var1.readBits(8);
-						if (var6 > 127) {
-							var6 -= 256;
+					NPC npc = Client.npcs[npcIndex];
+					Client.npcIndices[++Client.npcCount - 1] = npcIndex;
+					npc.npcCycle = Client.cycle;
+					int diffX;
+					if (largeView) {
+						diffX = buf.readBits(8);
+						if (diffX > 127) {
+							diffX -= 256;
 						}
 					} else {
-						var6 = var1.readBits(5);
-						if (var6 > 15) {
-							var6 -= 32;
+						diffX = buf.readBits(5);
+						if (diffX > 15) {
+							diffX -= 32;
 						}
 					}
 
-					int var8 = Client.defaultRotations[var1.readBits(3)];
-					if (var3) {
-						var4.orientation = var4.rotation = var8;
+					int spawnDirection = Client.defaultRotations[buf.readBits(3)];
+					if (isNewlySpawned) {
+						npc.orientation = npc.rotation = spawnDirection;
 					}
 
-					int var5 = var1.readBits(1);
-					int var9 = var1.readBits(1);
-					if (var9 == 1) {
-						Client.field533[++Client.field560 - 1] = var2;
+					int hasTeleportUpdate = buf.readBits(1);
+					int hasMasks = buf.readBits(1);
+					if (hasMasks == 1) {
+						Client.npcMaskUpdates[++Client.npcMaskUpdateIndex - 1] = npcIndex;
 					}
 
-					int var7;
-					if (var0) {
-						var7 = var1.readBits(8);
-						if (var7 > 127) {
-							var7 -= 256;
+					int diffY;
+					if (largeView) {
+						diffY = buf.readBits(8);
+						if (diffY > 127) {
+							diffY -= 256;
 						}
 					} else {
-						var7 = var1.readBits(5);
-						if (var7 > 15) {
-							var7 -= 32;
+						diffY = buf.readBits(5);
+						if (diffY > 15) {
+							diffY -= 32;
 						}
 					}
 
-					var4.definition = ScriptEvent.getNpcDefinition(var1.readBits(14));
-					boolean var10 = var1.readBits(1) == 1;
+					npc.definition = ScriptEvent.getNpcDefinition(buf.readBits(14));
+					boolean var10 = buf.readBits(1) == 1;
 					if (var10) {
-						var1.readBits(32);
+						buf.readBits(32);
 					}
 
-					var4.field1137 = var4.definition.size;
-					var4.field1146 = var4.definition.rotation;
-					if (var4.field1146 == 0) {
-						var4.rotation = 0;
+					npc.field1137 = npc.definition.size;
+					npc.field1146 = npc.definition.rotation;
+					if (npc.field1146 == 0) {
+						npc.rotation = 0;
 					}
 
-					var4.walkSequence = var4.definition.walkSequence;
-					var4.walkBackSequence = var4.definition.walkBackSequence;
-					var4.walkLeftSequence = var4.definition.walkLeftSequence;
-					var4.walkRightSequence = var4.definition.walkRightSequence;
-					var4.idleSequence = var4.definition.idleSequence;
-					var4.turnLeftSequence = var4.definition.turnLeftSequence;
-					var4.turnRightSequence = var4.definition.turnRightSequence;
-					var4.method2224(class129.localPlayer.pathX[0] + var6, class129.localPlayer.pathY[0] + var7, var5 == 1);
+					npc.walkSequence = npc.definition.walkSequence;
+					npc.walkBackSequence = npc.definition.walkBackSequence;
+					npc.walkLeftSequence = npc.definition.walkLeftSequence;
+					npc.walkRightSequence = npc.definition.walkRightSequence;
+					npc.idleSequence = npc.definition.idleSequence;
+					npc.turnLeftSequence = npc.definition.turnLeftSequence;
+					npc.turnRightSequence = npc.definition.turnRightSequence;
+					npc.method2224(class129.localPlayer.pathX[0] + diffX, class129.localPlayer.pathY[0] + diffY, hasTeleportUpdate == 1);
 					continue;
 				}
 			}
 
-			var1.exportIndex();
+			buf.exportIndex();
 			return;
 		}
 	}
