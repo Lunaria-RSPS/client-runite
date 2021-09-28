@@ -253,7 +253,7 @@ public class ScriptFrame {
 			}
 		}
 
-		class279.worldHost = Jire.RSPS ? Jire.IP : var0.host;
+		class279.worldHost = class67.RSPS ? class67.IP : var0.host;
 		Client.worldId = var0.id;
 		Client.worldProperties = var0.properties;
 		GameBuild.worldPort = Client.gameBuild == 0 ? 43594 : var0.id + 40000;

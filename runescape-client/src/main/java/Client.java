@@ -6564,7 +6564,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 
 				Scene.Scene_isLowDetail = false;
 				isLowDetail = false;
-				class279.worldHost = Jire.RSPS ? Jire.IP : this.getCodeBase().getHost();
+				class279.worldHost = class67.RSPS ? class67.IP : this.getCodeBase().getHost();
 				String var17 = WorldMapSection2.field2031.name;
 				byte var18 = 0;
 
