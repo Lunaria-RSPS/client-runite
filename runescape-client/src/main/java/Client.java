@@ -5455,6 +5455,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 				if (ServerPacket.field2782 == var1.serverPacket) {
 					var17 = var3.readInt();
 					var5 = var3.readUnsignedShort();
+					System.out.println("SEND ITEM " + var17 + "("+(var17 >> 16)+":"+(var17 & 0xFFFF) + "), " + var5);
 					if (var17 < -70000) {
 						var5 += 32768;
 					}
@@ -5770,6 +5771,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 				if (ServerPacket.field2838 == var1.serverPacket) {
 					var17 = var3.readInt();
 					var5 = var3.readUnsignedShort();
+					System.out.println("UPDATE ITEMS " + var17 + "("+(var17 >> 16)+":"+(var17&0xFFFF)+"), containerId="+var5);
 					if (var17 < -70000) {
 						var5 += 32768;
 					}
@@ -6562,7 +6564,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 
 				Scene.Scene_isLowDetail = false;
 				isLowDetail = false;
-				class279.worldHost = "localhost";//this.getCodeBase().getHost();
+				class279.worldHost = Jire.RSPS ? Jire.IP : this.getCodeBase().getHost();
 				String var17 = WorldMapSection2.field2031.name;
 				byte var18 = 0;
 

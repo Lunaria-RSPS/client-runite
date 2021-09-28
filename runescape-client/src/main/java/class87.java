@@ -20,17 +20,17 @@ public class class87 {
 		garbageValue = "1474886022"
 	)
 	@Export("getWidget")
-	public static Widget getWidget(int var0) {
-		int var1 = var0 >> 16;
-		int var2 = var0 & 65535;
-		if (class139.Widget_interfaceComponents[var1] == null || class139.Widget_interfaceComponents[var1][var2] == null) {
-			boolean var3 = class317.loadInterface(var1);
+	public static Widget getWidget(int widgetID) {
+		int parentID = widgetID >> 16;
+		int childID = widgetID & 65535;
+		if (class139.Widget_interfaceComponents[parentID] == null || class139.Widget_interfaceComponents[parentID][childID] == null) {
+			boolean var3 = class317.loadInterface(parentID);
 			if (!var3) {
 				return null;
 			}
 		}
 
-		return class139.Widget_interfaceComponents[var1][var2];
+		return class139.Widget_interfaceComponents[parentID][childID];
 	}
 
 	@ObfuscatedName("k")

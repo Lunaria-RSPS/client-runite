@@ -320,12 +320,12 @@ public enum AttackOption implements MouseWheel {
 					for (var7 = 0; var7 < var6; ++var7) {
 						var8 = var0.readUShortSmart();
 						var9 = var0.readUShortSmart();
-						System.out.println(var8+","+var9 + " breh");
+						//System.out.println(var8+","+var9 + " breh");
 						if (var9 != 32767) {
 							var10 = var0.readUShortSmart();
 							var11 = var0.readUnsignedByteC();
 							int var12 = var9 > 0 ? var0.readUnsignedByteA() : var11;
-							System.out.println("jaja " + var10+","+var11+","+var12);
+							//System.out.println("jaja " + var10+","+var11+","+var12);
 							var3.addHealthBar(var8, Client.cycle, var9, var10, var11, var12);
 						} else {
 							var3.removeHealthBar(var8);
