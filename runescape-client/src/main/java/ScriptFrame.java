@@ -267,77 +267,77 @@ public class ScriptFrame {
 		garbageValue = "1826318148"
 	)
 	static final void method1086(class240 var0) {
-		PacketBuffer var1 = Client.packetWriter.packetBuffer;
-		int var2;
-		int var3;
-		int var4;
-		int var5;
-		int var6;
-		int var7;
-		int var8;
+		PacketBuffer buf = Client.packetWriter.packetBuffer;
+		int a;
+		int b;
+		int c;
+		int d;
+		int e;
+		int f;
+		int offsetY;
 		if (class240.field2749 == var0) {
-			var2 = var1.readUnsignedByteS();
-			var3 = var2 >> 2;
-			var4 = var2 & 3;
-			var5 = Client.field549[var3];
-			var6 = var1.readUnsignedByte();
-			var7 = (var6 >> 4 & 7) + JagexCache.field1559;
-			var8 = (var6 & 7) + WorldMapEvent.field2216;
-			if (var7 >= 0 && var8 >= 0 && var7 < 104 && var8 < 104) {
-				ParamComposition.updatePendingSpawn(class391.Client_plane, var7, var8, var5, -1, var3, var4, 0, -1);
+			a = buf.readUnsignedByteS();
+			b = a >> 2;
+			c = a & 3;
+			d = Client.field549[b];
+			e = buf.readUnsignedByte();
+			f = (e >> 4 & 7) + JagexCache.field1559;
+			offsetY = (e & 7) + WorldMapEvent.field2216;
+			if (f >= 0 && offsetY >= 0 && f < 104 && offsetY < 104) {
+				ParamComposition.updatePendingSpawn(class391.Client_plane, f, offsetY, d, -1, b, c, 0, -1);
 			}
 
 		} else {
-			int var9;
+			int delay;
 			int var10;
 			int var11;
 			int var12;
 			int var13;
 			byte var37;
 			if (class240.field2758 == var0) {
-				var37 = var1.readByte();
-				var3 = var1.readUnsignedLEShort();
-				var4 = var1.readUnsignedByteA();
-				var5 = var1.readUnsignedByte();
-				var6 = (var5 >> 4 & 7) + JagexCache.field1559;
-				var7 = (var5 & 7) + WorldMapEvent.field2216;
-				var8 = var1.readUnsignedByteA() * 4;
-				var9 = var1.readUnsignedByteS();
-				var10 = var1.readShortA();
-				var11 = var1.readShortA();
-				byte var40 = var1.readByteS();
-				var13 = var1.readUnsignedByteA() * 4;
-				int var41 = var1.readShortA();
-				var2 = var37 + var6;
-				var12 = var40 + var7;
-				if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104 && var2 >= 0 && var12 >= 0 && var2 < 104 && var12 < 104 && var11 != 65535) {
-					var6 = var6 * 128 + 64;
-					var7 = var7 * 128 + 64;
-					var2 = var2 * 128 + 64;
-					var12 = var12 * 128 + 64;
-					Projectile var36 = new Projectile(var11, class391.Client_plane, var6, var7, GraphicsObject.getTileHeight(var6, var7, class391.Client_plane) - var13, var41 + Client.cycle, var10 + Client.cycle, var4, var9, var3, var8);
-					var36.setDestination(var2, var12, GraphicsObject.getTileHeight(var2, var12, class391.Client_plane) - var8, var41 + Client.cycle);
-					Client.projectiles.addFirst(var36);
+				var37 = buf.readByte();//destXStartX
+				b = buf.readUnsignedLEShort();//targetIndex
+				c = buf.readUnsignedByteA();//slope
+				d = buf.readUnsignedByte();//offsetHash
+				e = (d >> 4 & 7) + JagexCache.field1559;//offsetX
+				f = (d & 7) + WorldMapEvent.field2216;//offsetY
+				offsetY = buf.readUnsignedByteA() * 4;//endHeight
+				delay = buf.readUnsignedByteS();//something
+				var10 = buf.readShortA();//duration
+				var11 = buf.readShortA();//id
+				byte var40 = buf.readByteS();//destYStartY
+				var13 = buf.readUnsignedByteA() * 4;//startHeight
+				int var41 = buf.readShortA();//delay
+				a = var37 + e;
+				var12 = var40 + f;
+				if (e >= 0 && f >= 0 && e < 104 && f < 104 && a >= 0 && var12 >= 0 && a < 104 && var12 < 104 && var11 != 65535) {
+					e = e * 128 + 64;
+					f = f * 128 + 64;
+					a = a * 128 + 64;
+					var12 = var12 * 128 + 64;//var10 + Client.cycle, c, delay, b, offsetY
+					Projectile projectile = new Projectile(var11, class391.Client_plane, e, f, GraphicsObject.getTileHeight(e, f, class391.Client_plane) - var13, var41 + Client.cycle, var10 + Client.cycle, c, delay, b, offsetY);
+					projectile.setDestination(a, var12, GraphicsObject.getTileHeight(a, var12, class391.Client_plane) - offsetY, var41 + Client.cycle);
+					Client.projectiles.addFirst(projectile);
 				}
 
 			} else {
 				if (class240.field2755 == var0) {
-					var2 = var1.readUnsignedShort();
-					var3 = var1.readUnsignedByte();
-					var4 = var3 >> 4 & 15;
-					var5 = var3 & 7;
-					var6 = var1.readUnsignedByteS();
-					var7 = (var6 >> 4 & 7) + JagexCache.field1559;
-					var8 = (var6 & 7) + WorldMapEvent.field2216;
-					var9 = var1.readUnsignedByteS();
-					if (var7 >= 0 && var8 >= 0 && var7 < 104 && var8 < 104) {
-						var10 = var4 + 1;
-						if (class129.localPlayer.pathX[0] >= var7 - var10 && class129.localPlayer.pathX[0] <= var7 + var10 && class129.localPlayer.pathY[0] >= var8 - var10 && class129.localPlayer.pathY[0] <= var10 + var8 && VarbitComposition.clientPreferences.areaSoundEffectsVolume != 0 && var5 > 0 && Client.soundEffectCount < 50) {
-							Client.soundEffectIds[Client.soundEffectCount] = var2;
-							Client.queuedSoundEffectLoops[Client.soundEffectCount] = var5;
-							Client.queuedSoundEffectDelays[Client.soundEffectCount] = var9;
+					a = buf.readUnsignedShort();
+					b = buf.readUnsignedByte();
+					c = b >> 4 & 15;
+					d = b & 7;
+					e = buf.readUnsignedByteS();
+					f = (e >> 4 & 7) + JagexCache.field1559;
+					offsetY = (e & 7) + WorldMapEvent.field2216;
+					delay = buf.readUnsignedByteS();
+					if (f >= 0 && offsetY >= 0 && f < 104 && offsetY < 104) {
+						var10 = c + 1;
+						if (class129.localPlayer.pathX[0] >= f - var10 && class129.localPlayer.pathX[0] <= f + var10 && class129.localPlayer.pathY[0] >= offsetY - var10 && class129.localPlayer.pathY[0] <= var10 + offsetY && VarbitComposition.clientPreferences.areaSoundEffectsVolume != 0 && d > 0 && Client.soundEffectCount < 50) {
+							Client.soundEffectIds[Client.soundEffectCount] = a;
+							Client.queuedSoundEffectLoops[Client.soundEffectCount] = d;
+							Client.queuedSoundEffectDelays[Client.soundEffectCount] = delay;
 							Client.soundEffects[Client.soundEffectCount] = null;
-							Client.soundLocations[Client.soundEffectCount] = var4 + (var8 << 8) + (var7 << 16);
+							Client.soundLocations[Client.soundEffectCount] = c + (offsetY << 8) + (f << 16);
 							++Client.soundEffectCount;
 						}
 					}
@@ -345,151 +345,151 @@ public class ScriptFrame {
 
 				TileItem var35;
 				if (class240.field2752 == var0) {
-					var2 = var1.readUnsignedShort();
-					var3 = var1.readUnsignedShort();
-					var4 = var1.readUnsignedByteA();
-					var5 = (var4 >> 4 & 7) + JagexCache.field1559;
-					var6 = (var4 & 7) + WorldMapEvent.field2216;
-					if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
+					a = buf.readUnsignedShort();
+					b = buf.readUnsignedShort();
+					c = buf.readUnsignedByteA();
+					d = (c >> 4 & 7) + JagexCache.field1559;
+					e = (c & 7) + WorldMapEvent.field2216;
+					if (d >= 0 && e >= 0 && d < 104 && e < 104) {
 						var35 = new TileItem();
-						var35.id = var3;
-						var35.quantity = var2;
-						if (Client.groundItems[class391.Client_plane][var5][var6] == null) {
-							Client.groundItems[class391.Client_plane][var5][var6] = new NodeDeque();
+						var35.id = b;
+						var35.quantity = a;
+						if (Client.groundItems[class391.Client_plane][d][e] == null) {
+							Client.groundItems[class391.Client_plane][d][e] = new NodeDeque();
 						}
 
-						Client.groundItems[class391.Client_plane][var5][var6].addFirst(var35);
-						SoundSystem.updateItemPile(var5, var6);
+						Client.groundItems[class391.Client_plane][d][e].addFirst(var35);
+						SoundSystem.updateItemPile(d, e);
 					}
 
 				} else if (class240.field2751 == var0) {
-					var2 = var1.readShortA();
-					var3 = var1.readUnsignedByte();
-					var4 = (var3 >> 4 & 7) + JagexCache.field1559;
-					var5 = (var3 & 7) + WorldMapEvent.field2216;
-					if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-						NodeDeque var34 = Client.groundItems[class391.Client_plane][var4][var5];
+					a = buf.readShortA();
+					b = buf.readUnsignedByte();
+					c = (b >> 4 & 7) + JagexCache.field1559;
+					d = (b & 7) + WorldMapEvent.field2216;
+					if (c >= 0 && d >= 0 && c < 104 && d < 104) {
+						NodeDeque var34 = Client.groundItems[class391.Client_plane][c][d];
 						if (var34 != null) {
 							for (var35 = (TileItem)var34.last(); var35 != null; var35 = (TileItem)var34.previous()) {
-								if ((var2 & 32767) == var35.id) {
+								if ((a & 32767) == var35.id) {
 									var35.remove();
 									break;
 								}
 							}
 
 							if (var34.last() == null) {
-								Client.groundItems[class391.Client_plane][var4][var5] = null;
+								Client.groundItems[class391.Client_plane][c][d] = null;
 							}
 
-							SoundSystem.updateItemPile(var4, var5);
+							SoundSystem.updateItemPile(c, d);
 						}
 					}
 
 				} else if (class240.field2750 == var0) {
-					var2 = var1.readUnsignedShort();
-					var3 = var1.readUnsignedByteS();
-					var4 = (var3 >> 4 & 7) + JagexCache.field1559;
-					var5 = (var3 & 7) + WorldMapEvent.field2216;
-					var6 = var1.readUnsignedByte();
-					var7 = var6 >> 2;
-					var8 = var6 & 3;
-					var9 = Client.field549[var7];
-					if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-						ParamComposition.updatePendingSpawn(class391.Client_plane, var4, var5, var9, var2, var7, var8, 0, -1);
+					a = buf.readUnsignedShort();
+					b = buf.readUnsignedByteS();
+					c = (b >> 4 & 7) + JagexCache.field1559;
+					d = (b & 7) + WorldMapEvent.field2216;
+					e = buf.readUnsignedByte();
+					f = e >> 2;
+					offsetY = e & 3;
+					delay = Client.field549[f];
+					if (c >= 0 && d >= 0 && c < 104 && d < 104) {
+						ParamComposition.updatePendingSpawn(class391.Client_plane, c, d, delay, a, f, offsetY, 0, -1);
 					}
 
 				} else if (class240.field2756 == var0) {
-					var2 = var1.readUnsignedByteS();
-					var3 = (var2 >> 4 & 7) + JagexCache.field1559;
-					var4 = (var2 & 7) + WorldMapEvent.field2216;
-					var5 = var1.readLEShort();
-					var6 = var1.readUnsignedByteA();
-					var7 = var6 >> 2;
-					var8 = var6 & 3;
-					var9 = Client.field549[var7];
-					if (var3 >= 0 && var4 >= 0 && var3 < 103 && var4 < 103) {
-						if (var9 == 0) {
-							BoundaryObject var33 = CollisionMap.scene.method4155(class391.Client_plane, var3, var4);
+					a = buf.readUnsignedByteS();
+					b = (a >> 4 & 7) + JagexCache.field1559;
+					c = (a & 7) + WorldMapEvent.field2216;
+					d = buf.readLEShort();
+					e = buf.readUnsignedByteA();
+					f = e >> 2;
+					offsetY = e & 3;
+					delay = Client.field549[f];
+					if (b >= 0 && c >= 0 && b < 103 && c < 103) {
+						if (delay == 0) {
+							BoundaryObject var33 = CollisionMap.scene.method4155(class391.Client_plane, b, c);
 							if (var33 != null) {
 								var11 = HealthBarDefinition.Entity_unpackID(var33.tag);
-								if (var7 == 2) {
-									var33.renderable1 = new DynamicObject(var11, 2, var8 + 4, class391.Client_plane, var3, var4, var5, false, var33.renderable1);
-									var33.renderable2 = new DynamicObject(var11, 2, var8 + 1 & 3, class391.Client_plane, var3, var4, var5, false, var33.renderable2);
+								if (f == 2) {
+									var33.renderable1 = new DynamicObject(var11, 2, offsetY + 4, class391.Client_plane, b, c, d, false, var33.renderable1);
+									var33.renderable2 = new DynamicObject(var11, 2, offsetY + 1 & 3, class391.Client_plane, b, c, d, false, var33.renderable2);
 								} else {
-									var33.renderable1 = new DynamicObject(var11, var7, var8, class391.Client_plane, var3, var4, var5, false, var33.renderable1);
+									var33.renderable1 = new DynamicObject(var11, f, offsetY, class391.Client_plane, b, c, d, false, var33.renderable1);
 								}
 							}
 						}
 
-						if (var9 == 1) {
-							WallDecoration var43 = CollisionMap.scene.method4156(class391.Client_plane, var3, var4);
+						if (delay == 1) {
+							WallDecoration var43 = CollisionMap.scene.method4156(class391.Client_plane, b, c);
 							if (var43 != null) {
 								var11 = HealthBarDefinition.Entity_unpackID(var43.tag);
-								if (var7 != 4 && var7 != 5) {
-									if (var7 == 6) {
-										var43.renderable1 = new DynamicObject(var11, 4, var8 + 4, class391.Client_plane, var3, var4, var5, false, var43.renderable1);
-									} else if (var7 == 7) {
-										var43.renderable1 = new DynamicObject(var11, 4, (var8 + 2 & 3) + 4, class391.Client_plane, var3, var4, var5, false, var43.renderable1);
-									} else if (var7 == 8) {
-										var43.renderable1 = new DynamicObject(var11, 4, var8 + 4, class391.Client_plane, var3, var4, var5, false, var43.renderable1);
-										var43.renderable2 = new DynamicObject(var11, 4, (var8 + 2 & 3) + 4, class391.Client_plane, var3, var4, var5, false, var43.renderable2);
+								if (f != 4 && f != 5) {
+									if (f == 6) {
+										var43.renderable1 = new DynamicObject(var11, 4, offsetY + 4, class391.Client_plane, b, c, d, false, var43.renderable1);
+									} else if (f == 7) {
+										var43.renderable1 = new DynamicObject(var11, 4, (offsetY + 2 & 3) + 4, class391.Client_plane, b, c, d, false, var43.renderable1);
+									} else if (f == 8) {
+										var43.renderable1 = new DynamicObject(var11, 4, offsetY + 4, class391.Client_plane, b, c, d, false, var43.renderable1);
+										var43.renderable2 = new DynamicObject(var11, 4, (offsetY + 2 & 3) + 4, class391.Client_plane, b, c, d, false, var43.renderable2);
 									}
 								} else {
-									var43.renderable1 = new DynamicObject(var11, 4, var8, class391.Client_plane, var3, var4, var5, false, var43.renderable1);
+									var43.renderable1 = new DynamicObject(var11, 4, offsetY, class391.Client_plane, b, c, d, false, var43.renderable1);
 								}
 							}
 						}
 
-						if (var9 == 2) {
-							GameObject var44 = CollisionMap.scene.method4180(class391.Client_plane, var3, var4);
-							if (var7 == 11) {
-								var7 = 10;
+						if (delay == 2) {
+							GameObject var44 = CollisionMap.scene.method4180(class391.Client_plane, b, c);
+							if (f == 11) {
+								f = 10;
 							}
 
 							if (var44 != null) {
-								var44.renderable = new DynamicObject(HealthBarDefinition.Entity_unpackID(var44.tag), var7, var8, class391.Client_plane, var3, var4, var5, false, var44.renderable);
+								var44.renderable = new DynamicObject(HealthBarDefinition.Entity_unpackID(var44.tag), f, offsetY, class391.Client_plane, b, c, d, false, var44.renderable);
 							}
 						}
 
-						if (var9 == 3) {
-							FloorDecoration var45 = CollisionMap.scene.getFloorDecoration(class391.Client_plane, var3, var4);
+						if (delay == 3) {
+							FloorDecoration var45 = CollisionMap.scene.getFloorDecoration(class391.Client_plane, b, c);
 							if (var45 != null) {
-								var45.renderable = new DynamicObject(HealthBarDefinition.Entity_unpackID(var45.tag), 22, var8, class391.Client_plane, var3, var4, var5, false, var45.renderable);
+								var45.renderable = new DynamicObject(HealthBarDefinition.Entity_unpackID(var45.tag), 22, offsetY, class391.Client_plane, b, c, d, false, var45.renderable);
 							}
 						}
 					}
 
 				} else if (class240.field2760 == var0) {
-					var2 = var1.readUnsignedShort();
-					var3 = var1.readShortA();
-					var4 = var1.readUnsignedByteA();
-					var5 = (var4 >> 4 & 7) + JagexCache.field1559;
-					var6 = (var4 & 7) + WorldMapEvent.field2216;
-					var7 = var1.readUnsignedByte();
-					if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
-						var5 = var5 * 128 + 64;
-						var6 = var6 * 128 + 64;
-						GraphicsObject var42 = new GraphicsObject(var3, class391.Client_plane, var5, var6, GraphicsObject.getTileHeight(var5, var6, class391.Client_plane) - var7, var2, Client.cycle);
-						Client.graphicsObjects.addFirst(var42);
+					a = buf.readUnsignedShort();
+					b = buf.readShortA();
+					c = buf.readUnsignedByteA();
+					d = (c >> 4 & 7) + JagexCache.field1559;
+					e = (c & 7) + WorldMapEvent.field2216;
+					f = buf.readUnsignedByte();
+					if (d >= 0 && e >= 0 && d < 104 && e < 104) {
+						d = d * 128 + 64;
+						e = e * 128 + 64;
+						GraphicsObject graphicsObject = new GraphicsObject(b, class391.Client_plane, d, e, GraphicsObject.getTileHeight(d, e, class391.Client_plane) - f, a, Client.cycle);
+						Client.graphicsObjects.addFirst(graphicsObject);
 					}
 
 				} else {
 					if (class240.field2753 == var0) {
-						var37 = var1.readByteA();
-						var3 = var1.readUnsignedByte();
-						var4 = (var3 >> 4 & 7) + JagexCache.field1559;
-						var5 = (var3 & 7) + WorldMapEvent.field2216;
-						var6 = var1.readShortA();
-						byte var38 = var1.readByte();
-						var8 = var1.readUnsignedShort();
-						byte var39 = var1.readByteC();
-						var10 = var1.readUnsignedByteS();
+						var37 = buf.readByteA();
+						b = buf.readUnsignedByte();
+						c = (b >> 4 & 7) + JagexCache.field1559;
+						d = (b & 7) + WorldMapEvent.field2216;
+						e = buf.readShortA();
+						byte var38 = buf.readByte();
+						offsetY = buf.readUnsignedShort();
+						byte var39 = buf.readByteC();
+						var10 = buf.readUnsignedByteS();
 						var11 = var10 >> 2;
 						var12 = var10 & 3;
 						var13 = Client.field549[var11];
-						byte var14 = var1.readByte();
-						int var15 = var1.readLEShortA();
-						int var16 = var1.readUnsignedShort();
+						byte var14 = buf.readByte();
+						int var15 = buf.readLEShortA();
+						int var16 = buf.readUnsignedShort();
 						Player var17;
 						if (var15 == Client.localPlayerIndex) {
 							var17 = class129.localPlayer;
@@ -498,7 +498,7 @@ public class ScriptFrame {
 						}
 
 						if (var17 != null) {
-							ObjectComposition var18 = HitSplatDefinition.getObjectDefinition(var8);
+							ObjectComposition var18 = HitSplatDefinition.getObjectDefinition(offsetY);
 							int var19;
 							int var20;
 							if (var12 != 1 && var12 != 3) {
@@ -509,22 +509,22 @@ public class ScriptFrame {
 								var20 = var18.sizeX;
 							}
 
-							int var21 = var4 + (var19 >> 1);
-							int var22 = var4 + (var19 + 1 >> 1);
-							int var23 = var5 + (var20 >> 1);
-							int var24 = var5 + (var20 + 1 >> 1);
+							int var21 = c + (var19 >> 1);
+							int var22 = c + (var19 + 1 >> 1);
+							int var23 = d + (var20 >> 1);
+							int var24 = d + (var20 + 1 >> 1);
 							int[][] var25 = Tiles.Tiles_heights[class391.Client_plane];
 							int var26 = var25[var21][var23] + var25[var22][var23] + var25[var21][var24] + var25[var22][var24] >> 2;
-							int var27 = (var4 << 7) + (var19 << 6);
-							int var28 = (var5 << 7) + (var20 << 6);
+							int var27 = (c << 7) + (var19 << 6);
+							int var28 = (d << 7) + (var20 << 6);
 							Model var29 = var18.getModel(var11, var12, var25, var27, var26, var28);
 							if (var29 != null) {
-								ParamComposition.updatePendingSpawn(class391.Client_plane, var4, var5, var13, -1, 0, 0, var6 + 1, var16 + 1);
-								var17.animationCycleStart = var6 + Client.cycle;
+								ParamComposition.updatePendingSpawn(class391.Client_plane, c, d, var13, -1, 0, 0, e + 1, var16 + 1);
+								var17.animationCycleStart = e + Client.cycle;
 								var17.animationCycleEnd = var16 + Client.cycle;
 								var17.model0 = var29;
-								var17.field1058 = var19 * 64 + var4 * 128;
-								var17.field1060 = var20 * 64 + var5 * 128;
+								var17.field1058 = var19 * 64 + c * 128;
+								var17.field1060 = var20 * 64 + d * 128;
 								var17.tileHeight2 = var26;
 								byte var30;
 								if (var38 > var37) {
@@ -539,32 +539,32 @@ public class ScriptFrame {
 									var39 = var30;
 								}
 
-								var17.minX = var4 + var38;
-								var17.maxX = var4 + var37;
-								var17.minY = var5 + var14;
-								var17.maxY = var5 + var39;
+								var17.minX = c + var38;
+								var17.maxX = c + var37;
+								var17.minY = d + var14;
+								var17.maxY = d + var39;
 							}
 						}
 					}
 
 					if (class240.field2757 == var0) {
-						var2 = var1.readShortA();
-						var3 = var1.readShortA();
-						var4 = var1.readShortA();
-						var5 = var1.readUnsignedByteC();
-						var6 = (var5 >> 4 & 7) + JagexCache.field1559;
-						var7 = (var5 & 7) + WorldMapEvent.field2216;
-						if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
-							NodeDeque var31 = Client.groundItems[class391.Client_plane][var6][var7];
+						a = buf.readShortA();
+						b = buf.readShortA();
+						c = buf.readShortA();
+						d = buf.readUnsignedByteC();
+						e = (d >> 4 & 7) + JagexCache.field1559;
+						f = (d & 7) + WorldMapEvent.field2216;
+						if (e >= 0 && f >= 0 && e < 104 && f < 104) {
+							NodeDeque var31 = Client.groundItems[class391.Client_plane][e][f];
 							if (var31 != null) {
 								for (TileItem var32 = (TileItem)var31.last(); var32 != null; var32 = (TileItem)var31.previous()) {
-									if ((var4 & 32767) == var32.id && var3 == var32.quantity) {
-										var32.quantity = var2;
+									if ((c & 32767) == var32.id && b == var32.quantity) {
+										var32.quantity = a;
 										break;
 									}
 								}
 
-								SoundSystem.updateItemPile(var6, var7);
+								SoundSystem.updateItemPile(e, f);
 							}
 						}
 

@@ -1,8 +1,4 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.mapping.*;
 
 @ObfuscatedName("bx")
 @Implements("Projectile")
@@ -136,21 +132,21 @@ public final class Projectile extends Renderable {
 	@Export("frameCycle")
 	int frameCycle;
 
-	Projectile(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11) {
+	Projectile(int id, int plane, int sourceX, int sourceY, int sourceZ, int cycleStart, int cycleEnd, int slope, int startHeight, int targetIndex, int endHeight) {
 		this.isMoving = false;
 		this.frame = 0;
 		this.frameCycle = 0;
-		this.id = var1;
-		this.plane = var2;
-		this.sourceX = var3;
-		this.sourceY = var4;
-		this.sourceZ = var5;
-		this.cycleStart = var6;
-		this.cycleEnd = var7;
-		this.slope = var8;
-		this.startHeight = var9;
-		this.targetIndex = var10;
-		this.endHeight = var11;
+		this.id = id;
+		this.plane = plane;
+		this.sourceX = sourceX;
+		this.sourceY = sourceY;
+		this.sourceZ = sourceZ;
+		this.cycleStart = cycleStart;
+		this.cycleEnd = cycleEnd;
+		this.slope = slope;
+		this.startHeight = startHeight;
+		this.targetIndex = targetIndex;
+		this.endHeight = endHeight;
 		this.isMoving = false;
 		int var12 = TaskHandler.SpotAnimationDefinition_get(this.id).sequence;
 		if (var12 != -1) {

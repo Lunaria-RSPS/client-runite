@@ -1,8 +1,4 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.mapping.*;
 
 @ObfuscatedName("bu")
 @Implements("GraphicsObject")
@@ -71,20 +67,20 @@ public final class GraphicsObject extends Renderable {
 	@Export("isFinished")
 	boolean isFinished;
 
-	GraphicsObject(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+	GraphicsObject(int id, int plane, int x, int y, int height, int delay, int currentCycle) {
 		this.frame = 0;
 		this.frameCycle = 0;
 		this.isFinished = false;
-		this.id = var1;
-		this.plane = var2;
-		this.x = var3;
-		this.y = var4;
-		this.height = var5;
-		this.cycleStart = var7 + var6;
-		int var8 = TaskHandler.SpotAnimationDefinition_get(this.id).sequence;
-		if (var8 != -1) {
+		this.id = id;
+		this.plane = plane;
+		this.x = x;
+		this.y = y;
+		this.height = height;
+		this.cycleStart = currentCycle + delay;
+		int sequenceID = TaskHandler.SpotAnimationDefinition_get(this.id).sequence;
+		if (sequenceID != -1) {
 			this.isFinished = false;
-			this.sequenceDefinition = class17.SequenceDefinition_get(var8);
+			this.sequenceDefinition = class17.SequenceDefinition_get(sequenceID);
 		} else {
 			this.isFinished = true;
 		}
