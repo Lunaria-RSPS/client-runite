@@ -26,33 +26,32 @@ package net.runelite.client.plugins.loginscreen;
 
 import com.google.common.base.Strings;
 import com.google.inject.Provides;
-import java.awt.Toolkit;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.Constants;
 import net.runelite.api.GameState;
 import net.runelite.api.SpritePixels;
 import net.runelite.api.events.GameStateChanged;
-import net.runelite.client.RuneLite;
 import net.runelite.client.callback.ClientThread;
-import net.runelite.client.events.ConfigChanged;
-import net.runelite.client.events.SessionOpen;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.events.ConfigChanged;
+import net.runelite.client.events.SessionOpen;
 import net.runelite.client.input.KeyListener;
 import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.ClientUI;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.OSType;
+
+import javax.inject.Inject;
+import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 @PluginDescriptor(
 	name = "Login Screen",
@@ -63,7 +62,7 @@ public class LoginScreenPlugin extends Plugin implements KeyListener
 {
 	private static final int MAX_USERNAME_LENGTH = 254;
 	private static final int MAX_PIN_LENGTH = 6;
-	private static final File CUSTOM_LOGIN_SCREEN_FILE = new File(RuneLite.RUNELITE_DIR, "login.png");
+	private static final BufferedImage CUSTOM_LOGIN_SCREEN_FILE = ImageUtil.loadImageResource(ClientUI.class, "/login.png");//new File(RuneLite.RUNELITE_DIR, "login.png");
 
 	@Inject
 	private Client client;
@@ -259,36 +258,16 @@ public class LoginScreenPlugin extends Plugin implements KeyListener
 			return;
 		}
 
-		SpritePixels pixels = null;
-		if (config.loginScreen() == LoginScreenOverride.CUSTOM)
-		{
-			if (CUSTOM_LOGIN_SCREEN_FILE.exists())
-			{
-				try
-				{
-					BufferedImage image;
-					synchronized (ImageIO.class)
-					{
-						image = ImageIO.read(CUSTOM_LOGIN_SCREEN_FILE);
-					}
-
-					if (image.getHeight() > Constants.GAME_FIXED_HEIGHT)
-					{
-						final double scalar = Constants.GAME_FIXED_HEIGHT / (double) image.getHeight();
-						image = ImageUtil.resizeImage(image, (int) (image.getWidth() * scalar), Constants.GAME_FIXED_HEIGHT);
-					}
-					pixels = ImageUtil.getImageSpritePixels(image, client);
-				}
-				catch (IOException e)
-				{
-					log.error("error loading custom login screen", e);
-					restoreLoginScreen();
-					return;
-				}
+		SpritePixels pixels;
+		if (config.loginScreen() == LoginScreenOverride.CUSTOM) {
+			BufferedImage image = CUSTOM_LOGIN_SCREEN_FILE;
+			
+			if (image.getHeight() > Constants.GAME_FIXED_HEIGHT) {
+				final double scalar = Constants.GAME_FIXED_HEIGHT / (double) image.getHeight();
+				image = ImageUtil.resizeImage(image, (int) (image.getWidth() * scalar), Constants.GAME_FIXED_HEIGHT);
 			}
-		}
-		else
-		{
+			pixels = ImageUtil.getImageSpritePixels(image, client);
+		} else {
 			pixels = getFileSpritePixels(config.loginScreen().getFileName());
 		}
 

@@ -48,7 +48,7 @@ public interface LoginScreenConfig extends Config
 	)
 	default boolean pasteEnabled()
 	{
-		return false;
+		return true;
 	}
 
 	@ConfigItem(
@@ -76,7 +76,7 @@ public interface LoginScreenConfig extends Config
 	)
 	default LoginScreenOverride loginScreen()
 	{
-		return LoginScreenOverride.OFF;
+		return LoginScreenOverride.CUSTOM;
 	}
 
 	@ConfigItem(
@@ -86,6 +86,6 @@ public interface LoginScreenConfig extends Config
 	)
 	default boolean showLoginFire()
 	{
-		return true;
+		return false;
 	}
 }
