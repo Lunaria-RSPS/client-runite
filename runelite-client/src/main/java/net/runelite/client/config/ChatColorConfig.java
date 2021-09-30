@@ -24,7 +24,7 @@
  */
 package net.runelite.client.config;
 
-import java.awt.Color;
+import java.awt.*;
 
 @ConfigGroup("textrecolor")
 public interface ChatColorConfig extends Config
@@ -278,7 +278,7 @@ public interface ChatColorConfig extends Config
 		position = 23,
 		keyName = "opaqueServerMessage",
 		name = "Server message",
-		description = "Color of Server Messages (eg. 'Welcome to RuneScape')",
+		description = "Color of Server Messages (eg. 'Welcome to Lunaria')",
 		section = opaqueSection
 	)
 	Color opaqueServerMessage();
@@ -675,7 +675,7 @@ public interface ChatColorConfig extends Config
 		position = 73,
 		keyName = "transparentServerMessage",
 		name = "Server message (transparent)",
-		description = "Color of Server Messages (eg. 'Welcome to RuneScape') (transparent)",
+		description = "Color of Server Messages (eg. 'Welcome to Lunaria') (transparent)",
 		section = transparentSection
 	)
 	Color transparentServerMessage();

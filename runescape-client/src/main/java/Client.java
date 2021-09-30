@@ -4970,6 +4970,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 
 					var71[0] = new Integer(var3.readInt());
 					ScriptEvent var75 = new ScriptEvent();
+					System.out.println("CS2 " + var46 + ", args " + Arrays.toString(var71));
 					var75.args = var71;
 					class139.runScriptEvent(var75);
 					var1.serverPacket = null;
@@ -5958,6 +5959,8 @@ public final class Client extends GameEngine implements Usernamed, OAuthTokens {
 					if (var19 == 65535) {
 						var19 = -1;
 					}
+					
+					System.out.println("ACCESSMASK " + (var17 >> 16) + ":"+ (var17 & 65535) + " mask="+var5+", childs " + var19+".."+var6);
 
 					for (var39 = var19; var39 <= var6; ++var39) {
 						var34 = ((long)var17 << 32) + (long)var39;

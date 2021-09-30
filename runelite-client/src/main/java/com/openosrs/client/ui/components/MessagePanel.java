@@ -24,25 +24,18 @@
  */
 package com.openosrs.client.ui.components;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JScrollPane;
-import javax.swing.JViewport;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.plaf.basic.BasicProgressBarUI;
+import com.openosrs.client.ui.OpenOSRSSplashScreen;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
-import com.openosrs.client.ui.OpenOSRSSplashScreen;
 import net.runelite.client.ui.components.CustomScrollBarUI;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.plaf.basic.BasicProgressBarUI;
+import java.awt.*;
 
 @Getter
 public class MessagePanel extends JPanel
@@ -51,7 +44,7 @@ public class MessagePanel extends JPanel
 	private static final Dimension BAR_SIZE = new Dimension(PANEL_SIZE.width, 30);
 	private static final int MESSAGE_AREA_PADDING = 15;
 
-	private final JLabel titleLabel = new JLabel("Welcome to OpenOSRS");
+	private final JLabel titleLabel = new JLabel("Welcome to Lunaria");
 	private final JLabel messageArea;
 	private final JLabel barLabel = new JLabel("Connecting with gameserver (try 1/10)");
 	private final JProgressBar bar = new JProgressBar(0, 100);
@@ -81,7 +74,7 @@ public class MessagePanel extends JPanel
 		c.gridy++;
 
 		// alternate message action
-		messageArea = new JLabel("<html><div style='text-align:center;'>Open-source client for Old School RuneScape with more functionality and less restrictions.</div></html>")
+		messageArea = new JLabel("<html><div style='text-align:center;'>Early-access client for Lunaria.</div></html>")
 		{
 			@Override
 			public Dimension getPreferredSize()
@@ -91,6 +84,7 @@ public class MessagePanel extends JPanel
 				return results;
 			}
 		};
+		messageArea.setHorizontalAlignment(JLabel.CENTER);
 		messageArea.setFont(new Font(FontManager.getRunescapeFont().getName(), FontManager.getRunescapeSmallFont().getStyle(), 16));
 		messageArea.setForeground(Color.WHITE);
 		messageArea.setBorder(new EmptyBorder(0, MESSAGE_AREA_PADDING, 0, MESSAGE_AREA_PADDING));

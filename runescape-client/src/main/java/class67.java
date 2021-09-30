@@ -10,7 +10,7 @@ public class class67 {
 	@ObfuscatedName("c")
 	static final BigInteger field868;
 	
-	public static final boolean RSPS = true;
+	public static final boolean RSPS = false;
 	public static final String IP = "localhost";
 	
 	static {
