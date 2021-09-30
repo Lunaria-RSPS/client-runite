@@ -28,37 +28,30 @@ package net.runelite.client.plugins.info;
 import com.google.common.base.MoreObjects;
 import com.google.inject.Inject;
 import com.openosrs.client.OpenOSRS;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.concurrent.ScheduledExecutorService;
-import javax.annotation.Nullable;
-import javax.inject.Named;
-import javax.inject.Singleton;
-import javax.swing.Box;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.HyperlinkEvent;
 import net.runelite.api.Client;
-import net.runelite.client.events.SessionClose;
-import net.runelite.client.events.SessionOpen;
 import net.runelite.client.RuneLiteProperties;
 import net.runelite.client.account.SessionManager;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.EventBus;
 import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.events.SessionClose;
+import net.runelite.client.events.SessionOpen;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
 import net.runelite.client.ui.PluginPanel;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.LinkBrowser;
+
+import javax.annotation.Nullable;
+import javax.inject.Named;
+import javax.inject.Singleton;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.HyperlinkEvent;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.concurrent.ScheduledExecutorService;
 
 @Singleton
 public class InfoPanel extends PluginPanel
@@ -139,7 +132,7 @@ public class InfoPanel extends PluginPanel
 		JLabel rlVersion = new JLabel(htmlLabel("RuneLite version: ", runeliteVersion));
 		rlVersion.setFont(smallFont);
 
-		JLabel oprsVersion = new JLabel(htmlLabel("OpenOSRS version: ", OpenOSRS.SYSTEM_VERSION));
+		JLabel oprsVersion = new JLabel(htmlLabel("Lunaria version: ", OpenOSRS.SYSTEM_VERSION));
 		oprsVersion.setFont(smallFont);
 
 		JLabel revision = new JLabel();

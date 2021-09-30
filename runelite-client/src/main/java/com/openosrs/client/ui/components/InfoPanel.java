@@ -25,29 +25,23 @@
 package com.openosrs.client.ui.components;
 
 import com.openosrs.client.OpenOSRS;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Image;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
+import com.openosrs.client.ui.OpenOSRSSplashScreen;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.RuneLiteProperties;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
-import com.openosrs.client.ui.OpenOSRSSplashScreen;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.LinkBrowser;
+
+import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 @Slf4j
 public class InfoPanel extends JPanel
@@ -89,7 +83,7 @@ public class InfoPanel extends JPanel
 		c.weighty = 0;
 
 		// OpenOSRS version
-		this.add(createPanelTextButton("OpenOSRS Version: " + OpenOSRS.SYSTEM_VERSION), c);
+		this.add(createPanelTextButton("Lunaria Version: " + OpenOSRS.SYSTEM_VERSION), c);
 		c.gridy++;
 
 		final JLabel logsFolder = createPanelButton("Open logs folder", null, () -> LinkBrowser.openLocalFile(LOGS_DIR));
